@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Installation
 
-Run `npm install` or `npm i` for installing all dependencies.It will create a `node_modules` folder.
+Run `npm install` or `npm i` for installing all dependencies. It will create a `node_modules` folder.
 
 ## Development server
 
@@ -17,6 +17,10 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Code Formaater
+
+Run `npm run lint:ci` to format the project. It will fix all the syntax and code format all over the folders.
 
 ## Running unit tests
 
