@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
+## Installation
+
+Run `npm install` or `npm i` for installing all dependencies.It will create a node_modules folder.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -33,5 +37,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - sass (<https://github.com/robinbentley/vscode-sass-indented)>
 - prettier (<https://github.com/prettier/prettier-vscode)>
 - bracket pair colorizer (<https://github.com/CoenraadS/BracketPair)>
-- angular v7 Snippets  (<https://github.com/johnpapa/vscode-angular-snippets)>
+- angular v7 Snippets (<https://github.com/johnpapa/vscode-angular-snippets)>
 - styleline (<https://github.com/shinnn/vscode-stylelint)>
