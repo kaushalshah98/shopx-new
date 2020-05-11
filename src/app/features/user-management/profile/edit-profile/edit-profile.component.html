@@ -1,0 +1,156 @@
+<!-- <div class="card-list">
+      <div class="roww">
+        <div class="col-lg-6">
+  <mat-card class="profile-image-card">
+            <mat-card-header>
+              <mat-card-title>
+                <div class="action-wrap">
+                  <button mat-raised-button color="accent">
+                    Save
+                  </button>
+                  <br /><br /><br />
+                  <button mat-raised-button color="warn">
+                    Cancel
+                  </button>
+                </div>
+              </mat-card-title>
+            </mat-card-header>
+          </mat-card>
+  </div>
+  <div class="col-lg-6"> -->
+<app-spinner [loading]="dataLoading" class="spinner"></app-spinner>
+
+<div
+  [ngClass]="{'profile-container':true,'dark-profile-container' :( property.nightmode | async),dimmed: dimmed}"
+  fxLayout="row"
+  [ngStyle]="{'padding-top': (paddingtop | async)  +'px'}"
+  fxLayoutAlign="start center"
+  fxLayoutGap="20px"
+>
+  <div fxFlex="40%">
+    <mat-card class="profile-image-card">
+      <mat-card-header>
+        <mat-card-title>{{"user.form.profile_pic" | translate}}</mat-card-title>
+      </mat-card-header>
+      <div class="profile-image">
+        <img
+          mat-card-image
+          [src]="
+            userdata != undefined
+              ? userdata.profilepic
+              : '../../../../assets/images/icon-login-profile.svg'
+          "
+          alt="Photo of a Shiba Inu"
+        />
+        <!-- (click)="imageinput.click()" -->
+        <input
+          accept="image/*"
+          type="file"
+          (change)="onImageSelected($event)"
+          #imageinput
+          style="display: none;"
+        />
+      </div>
+    </mat-card>
+  </div>
+  <div fxFlex="60%">
+    <mat-card class="profile-card">
+      <mat-card-title>{{"user.form_heading.edit_profile_details" | translate}}</mat-card-title>
+      <mat-card-content>
+        <form
+          [formGroup]="editform"
+          [ngClass]="{'edit-form':true,'dark-form': ( property.nightmode | async)}"
+        >
+          <mat-form-field appearance="outline">
+            <mat-label>{{"user.form.username" | translate}}</mat-label>
+            <input autocomplete="off" matInput formControlName="usernameFormControl" />
+            <mat-icon class="person-icon" matSuffix>person</mat-icon>
+            <mat-error
+              *ngIf="hasError('usernameFormControl','minlength') && !(hasError('usernameFormControl','pattern'))"
+            >
+              {{"user.form.username" | translate}} must be at least 3 characters long.
+            </mat-error>
+            <mat-error *ngIf="hasError('usernameFormControl','pattern')">
+              {{"user.form_validations.invalid_input" |translate}}
+            </mat-error>
+            <mat-error *ngIf="hasError('usernameFormControl','required')">
+              {{"user.form.username" | translate}} {{"user.form_validations.is_required" |
+              translate}}
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>{{"user.form.email" | translate}}</mat-label>
+            <input autocomplete="off" matInput formControlName="emailFormControl" />
+            <mat-icon class="email-icon" matSuffix>email</mat-icon>
+            <mat-error *ngIf="hasError('emailFormControl','email')">
+              {{"user.form_validations.please_enter_a_valid_email_address" | translate}}
+            </mat-error>
+            <mat-error *ngIf="hasError('emailFormControl','required')">
+              {{"user.form.email" | translate}} {{"user.form_validations.is_required" | translate}}
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>{{"user.form.profile_pic" | translate}}</mat-label>
+            <input autocomplete="off" matInput formControlName="photoFormControl" />
+            <button mat-icon-button matTooltip="view image" matTooltipPosition="left" matSuffix>
+              <mat-icon>image</mat-icon>
+            </button>
+            <mat-error *ngIf="hasError('photoFormControl','required')">
+              {{"user.form.profile_pic" | translate}} {{"user.form_validations.is_required" |
+              translate}}
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>{{"user.form.password" | translate}}</mat-label>
+            <input
+              autocomplete="off"
+              matInput
+              formControlName="passwordFormControl"
+              [type]="hide ? 'password' : 'text'"
+            />
+            <button
+              class="password-btn"
+              mat-icon-button
+              matTooltip="{{hide ? ('tooltip.show' | translate) : ('tooltip.hide'  |translate) }}"
+              matTooltipPosition="left"
+              matSuffix
+              (click)="hide = !hide"
+            >
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="hasError('passwordFormControl','minlength')">
+              {{"user.form.password" | translate}}
+              {{"user.form_validations.must_be_at_least_4_characters_long" | translate}}
+            </mat-error>
+            <mat-error *ngIf="hasError('passwordFormControl','required')">
+              {{"user.form.password" | translate}} {{"user.form_validations.is_required" |
+              translate}}
+            </mat-error>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- </div>
+      </div>
+    </div> -->
+</div>
+<mat-toolbar
+  [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}"
+>
+  <button
+    [disabled]="editform.invalid"
+    class="pink-btn"
+    id="btnSave"
+    mat-flat-button
+    (click)="save()"
+  >
+    {{"user.form.save" | translate}}
+  </button>
+  &nbsp;&nbsp;
+  <button class="red-btn" id="btnCancel" mat-flat-button (click)="cancel()">
+    {{"user.form.cancel" | translate}}
+  </button>
+</mat-toolbar>
+<!-- </div> -->

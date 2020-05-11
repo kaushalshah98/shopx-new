@@ -1,0 +1,91 @@
+<app-navbar (IsFullscreen)="fullscreenstatus($event)" [isHidden]="true"></app-navbar>
+<app-spinner [loading]="dataLoading" class="centre-spinner"></app-spinner>
+<div
+  [ngClass]="{'input-template':true, 'dark-input-template' :( property.nightmode | async)}"
+  [ngStyle]="{'padding-top': padding + 'px'}"
+>
+  <mat-card class="input-card box-elevation-z8">
+    <mat-card-header>
+      <mat-card-title>{{"user.form.contact_us" | translate}}</mat-card-title>
+    </mat-card-header>
+    <form
+      [ngClass]="{'input-form':true,'dark-form': ( property.nightmode | async)}"
+      [formGroup]="contactform"
+    >
+      <table class="table-full-width" cellspacing="0">
+        <tr>
+          <!-- <td>
+            <mat-form-field class="input-full-width" appearance="outline">
+              <mat-label>{{"user.form.name" | translate}}</mat-label>
+              <input autocomplete="off" matInput formControlName="usernameFormControl" />
+              <mat-error *ngIf="hasError('usernameFormControl','minlength')">
+                {{"user.form.name" | translate}}
+                {{"user.form_validations.must_be_at_least_3_characters_long" | translate}}.
+              </mat-error>
+              <mat-error *ngIf="hasError('usernameFormControl','required')">
+                {{"user.form.name" | translate}} {{"user.form_validations.is_required" | translate}}
+              </mat-error>
+            </mat-form-field>
+          </td> -->
+          <!-- <td>
+            <mat-form-field class="input-full-width" appearance="outline">
+              <mat-label>{{"user.form.email" | translate}}</mat-label>
+              <input autocomplete="off" matInput formControlName="emailFormControl" />
+              <mat-error *ngIf="hasError('emailFormControl','email')">
+                {{"user.form_validations.please_enter_a_valid_email_address" | translate}}
+              </mat-error>
+              <mat-error *ngIf="hasError('emailFormControl','required')">
+                {{"user.form.email" | translate}} {{"user.form_validations.is_required" |
+                translate}}
+              </mat-error>
+            </mat-form-field>
+          </td> -->
+          <td>
+            <mat-form-field class="input-full-width" appearance="outline">
+              <mat-label> {{"user.form.subject.subject" | translate}} </mat-label>
+              <mat-select formControlName="subjectFormControl">
+                <mat-option
+                  [ngClass]="{'dark-option': ( property.nightmode | async)}"
+                  *ngFor="let subject of subject"
+                  [value]="subject.name"
+                >
+                  {{subject.name | translate}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="hasError('subjectFormControl','required')">
+                {{"user.form.subject.subject" | translate}} {{"user.form_validations.is_required" |
+                translate}}
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+
+      <mat-form-field class="input-full-width" appearance="outline">
+        <mat-label> {{"user.form.message" | translate}} </mat-label>
+        <textarea
+          cdkTextareaAutosize
+          cdkAutosizeMinRows="6"
+          autocomplete="off"
+          matInput
+          formControlName="messageFormControl"
+        ></textarea>
+        <mat-error *ngIf="hasError('messageFormControl','required')">
+          {{"user.form.message" | translate}} {{"user.form_validations.is_required" | translate}}
+        </mat-error>
+      </mat-form-field>
+    </form>
+    <mat-card-content> </mat-card-content>
+    <div class="mat-actions">
+      <button
+        mat-raised-button
+        [disabled]="contactform.invalid"
+        class="blue-btn"
+        (click)="contact()"
+      >
+        {{"user.form.send" | translate}}
+      </button>
+    </div>
+  </mat-card>
+</div>
+<app-footer></app-footer>

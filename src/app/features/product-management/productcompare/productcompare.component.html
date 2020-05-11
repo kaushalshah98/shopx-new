@@ -1,0 +1,172 @@
+<app-navbar [isHidden]="true"></app-navbar>
+<app-jumbotron [Heading]="'user.main_heading.product_comparison'"></app-jumbotron>
+<app-spinner [loading]="dataLoading" *ngIf="dimmed" class="centre-spinner"></app-spinner>
+
+<div [ngClass]="{ dimmed: dimmed }">
+  <div [ngClass]="{'space-medium':true, 'dark-space-medium' :( property.nightmode | async)}">
+    <div class="containerr">
+      <div class="roww">
+        <ng-container *ngFor="let item of list">
+          <div class="three-part">
+            <mat-card class="showcase-block">
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <div fxFlex="40%">
+                  <div>
+                    <img class="small-mobile-image" [src]="item.image[0].imageurl" />
+                  </div>
+                </div>
+                <div fxFlex="60%">
+                  <div class="display-text">
+                    {{item.name}}
+                  </div>
+                  <br />
+                  <div class="compare-actions">
+                    <button class="add-btn" color="accent" mat-raised-button>
+                      {{'user.product.add_to_cart' |translate}}
+                    </button>
+                    &nbsp;&nbsp;
+                    <button
+                      class="cancel-btn"
+                      color="warn"
+                      (click)="remove(item)"
+                      mat-raised-button
+                    >
+                      <mat-icon>close</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </mat-card>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <div [ngClass]="{'order-container':true,'dark-order-container': ( property.nightmode | async)}">
+    <mat-accordion>
+      <ng-container>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{'user.compare.General' | translate}}
+            </mat-panel-title>
+            <mat-panel-description></mat-panel-description>
+          </mat-expansion-panel-header>
+          <table mat-table [dataSource]="general">
+            <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay1">
+              <th mat-header-cell *matHeaderCellDef>{{column | uppercase}}</th>
+              <td mat-cell *matCellDef="let element">{{element[column]}}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay1"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsToDisplay1;"></tr>
+          </table>
+        </mat-expansion-panel>
+        <br />
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{'user.compare.Display' | translate}}
+            </mat-panel-title>
+            <mat-panel-description></mat-panel-description>
+          </mat-expansion-panel-header>
+          <table mat-table [dataSource]="display">
+            <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay2">
+              <th mat-header-cell *matHeaderCellDef>{{column | uppercase}}</th>
+              <td mat-cell *matCellDef="let element">{{element[column]}}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay2"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsToDisplay2;"></tr>
+          </table>
+        </mat-expansion-panel>
+        <br />
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{'user.compare.Design' | translate}}
+            </mat-panel-title>
+            <mat-panel-description></mat-panel-description>
+          </mat-expansion-panel-header>
+          <table mat-table [dataSource]="design">
+            <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay3">
+              <th mat-header-cell *matHeaderCellDef>{{column | uppercase}}</th>
+              <td mat-cell *matCellDef="let element">{{element[column]}}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay3"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsToDisplay3;"></tr>
+          </table>
+        </mat-expansion-panel>
+        <br />
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{'user.compare.Battery' | translate}}
+            </mat-panel-title>
+            <mat-panel-description></mat-panel-description>
+          </mat-expansion-panel-header>
+          <table mat-table [dataSource]="battery">
+            <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay4">
+              <th mat-header-cell *matHeaderCellDef>{{column | uppercase}}</th>
+              <td mat-cell *matCellDef="let element">{{element[column]}}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay4"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsToDisplay4;"></tr>
+          </table>
+        </mat-expansion-panel>
+        <br />
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{'user.compare.performance' | translate}}
+            </mat-panel-title>
+            <mat-panel-description></mat-panel-description>
+          </mat-expansion-panel-header>
+          <table mat-table [dataSource]="performance">
+            <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay5">
+              <th mat-header-cell *matHeaderCellDef>{{column | uppercase}}</th>
+              <td mat-cell *matCellDef="let element">{{element[column]}}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay5"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsToDisplay5;"></tr>
+          </table>
+        </mat-expansion-panel>
+        <br />
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{'user.compare.Storage' | translate}}
+            </mat-panel-title>
+            <mat-panel-description></mat-panel-description>
+          </mat-expansion-panel-header>
+          <table mat-table [dataSource]="storage">
+            <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay6">
+              <th mat-header-cell *matHeaderCellDef>{{column | uppercase}}</th>
+              <td mat-cell *matCellDef="let element">{{element[column]}}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay6"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsToDisplay6;"></tr>
+          </table>
+        </mat-expansion-panel>
+        <br />
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{'user.compare.Camera' | translate}}
+            </mat-panel-title>
+            <mat-panel-description></mat-panel-description>
+          </mat-expansion-panel-header>
+          <table mat-table [dataSource]="camera">
+            <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay7">
+              <th mat-header-cell *matHeaderCellDef>{{column | uppercase}}</th>
+              <td mat-cell *matCellDef="let element">{{element[column]}}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay7"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsToDisplay7;"></tr>
+          </table>
+        </mat-expansion-panel>
+        <br />
+      </ng-container>
+    </mat-accordion>
+  </div>
+</div>
+<app-footer [position]="'sticky'"></app-footer>

@@ -1,0 +1,380 @@
+@import './var.scss';
+
+.dark-body {
+  color: $white;
+  background-color: $darkest;
+  min-height: 100vh;
+}
+.dark-space-medium {
+  .showcase-block {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+      0 3px 14px 2px rgba(0, 0, 0, 0.12) !important;
+    background-color: $cardgray !important;
+    &:hover {
+      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.5), 0 8px 10px 1px rgba(0, 0, 0, 0.44),
+        0 3px 14px 2px rgba(0, 0, 0, 0.42) !important;
+      background-color: $darkgray !important;
+    }
+    .display-text {
+      color: $white !important;
+      &:hover {
+        color: wheat !important;
+      }
+    }
+  }
+}
+.dark-input-template {
+  .input-card {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+      0 3px 14px 2px rgba(0, 0, 0, 0.12) !important;
+    color: $white;
+    background-color: $darkgray;
+    &.mat-card {
+      .mat-card-header {
+        background-color: $blueberry;
+        .mat-card-title {
+          color: $white;
+        }
+      }
+      .signin-btn {
+        background-color: $buttongray;
+      }
+      .blue-btn {
+        background-color: $buttongray !important;
+        &:hover {
+          color: $white !important;
+          background-color: $blueberry !important;
+        }
+      }
+      .facebook-btn {
+        background-color: $buttongray;
+      }
+      .google-btn {
+        background-color: $buttongray;
+      }
+
+      .input-text {
+        .forgot-text {
+          color: cadetblue;
+        }
+      }
+    }
+  }
+}
+.dark-white-scroll-btn {
+  background-color: $blueberry !important;
+  color: $white !important;
+  // box-shadow: 0 0 22px $white !important;
+}
+.dark-chips {
+  .mat-chip.mat-standard-chip {
+    background-color: $lightergray;
+    color: $white;
+  }
+  .mat-chip.mat-standard-chip .mat-chip-remove {
+    color: $white;
+    opacity: 2;
+  }
+}
+.dark-table-wrapper {
+  .mat-sort-header-arrow {
+    color: $white;
+  }
+  .mat-table {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+      0 3px 14px 2px rgba(0, 0, 0, 0.12) !important;
+    background-color: $darkgray;
+    .mat-header-cell {
+      color: $lightestgray;
+    }
+    .mat-cell,
+    .mat-footer-cell {
+      color: $lightwhite;
+    }
+    mat-header-row,
+    mat-row {
+      border-bottom-color: rgba(255, 255, 255, 0.12);
+    }
+    mat-row {
+      &:hover {
+        background: $grey !important;
+      }
+    }
+    th.mat-header-cell,
+    td.mat-cell {
+      border-bottom-color: rgba(255, 255, 255, 0.12) !important;
+    }
+    tr.example-element-row:not(.example-expanded-row) {
+      &:hover {
+        background: $grey !important;
+      }
+      &:active {
+        background: $grey !important;
+      }
+    }
+    .user-element-row {
+      &:hover {
+        background: $grey !important;
+      }
+    }
+  }
+  .mat-raised-button {
+    &.delete-btn {
+      background-color: $raspberry !important;
+    }
+    &.empty-btn {
+      background-color: $darkgreen !important;
+      color: $white;
+    }
+    &.view-btn {
+      color: $white;
+      background-color: $blue !important;
+    }
+    &.add-btn {
+      background-color: $green !important;
+    }
+  }
+  .input-quantity {
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+      color: rgba(216, 213, 213, 0.64);
+    }
+  }
+}
+.dark-total-card {
+  color: $lightwhite;
+}
+.dark-bottom-action-bar {
+  background-color: $darkpurple !important;
+}
+.dark-mat-tab {
+  .mat-tab-nav-bar,
+  .mat-tab-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+  .mat-ink-bar {
+    background-color: $purple !important;
+  }
+  .mat-tab-label,
+  .mat-tab-link {
+    color: $white;
+  }
+}
+.dark-profile-container {
+  .profile-card {
+    background-color: $darkgray;
+    color: $white;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+      0 3px 14px 2px rgba(0, 0, 0, 0.12) !important;
+    .mat-card-title {
+      color: $white !important;
+      font-weight: normal;
+    }
+    &:hover {
+      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.5), 0 8px 10px 1px rgba(0, 0, 0, 0.44),
+        0 3px 14px 2px rgba(0, 0, 0, 0.42) !important;
+    }
+  }
+  .profile-image-card {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+      0 3px 14px 2px rgba(0, 0, 0, 0.12) !important;
+    background-color: $darkgray;
+    .mat-card-title {
+      color: $white !important;
+    }
+    .action-wrap {
+      .mat-raised-button {
+      }
+    }
+    &:hover {
+      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.5), 0 8px 10px 1px rgba(0, 0, 0, 0.44),
+        0 3px 14px 2px rgba(0, 0, 0, 0.42) !important;
+    }
+  }
+}
+.dark-order-container {
+  .order-card {
+    background-color: $darkcardgray;
+    .cancel-btn {
+      color: $green !important;
+    }
+    .right-btn {
+      color: $raspberry !important;
+    }
+  }
+  .mat-expansion-panel-body {
+    background-color: $darkcardgray;
+  }
+  .mat-expansion-panel-header-title {
+    color: rgba(255, 251, 251, 0.87);
+  }
+  .mat-expansion-indicator::after,
+  .mat-expansion-panel-header-description {
+    color: rgba(255, 254, 254, 0.54);
+  }
+  .mat-expansion-panel {
+    background: $darkgray;
+    border-radius: 10px !important;
+    &:hover {
+      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.5), 0 8px 10px 1px rgba(0, 0, 0, 0.44),
+        0 3px 14px 2px rgba(0, 0, 0, 0.42) !important;
+    }
+    .mat-expansion-panel-header {
+      height: 80px !important;
+      background: $darkgray;
+      // &:hover {
+      //   background-color: #673ab71c;
+      // }
+      p {
+        color: $white;
+      }
+    }
+    .mat-table {
+      .view-btn {
+        color: $green;
+      }
+      .cancel-btn {
+        background-color: $raspberry;
+        color: $white;
+      }
+      background-color: $darkcardgray;
+      .mat-header-cell {
+        color: $lightestgray;
+      }
+      .mat-cell,
+      .mat-footer-cell {
+        color: $lightwhite;
+      }
+      .mat-header-row,
+      .mat-row {
+        border-bottom-color: rgba(255, 255, 255, 0.12);
+      }
+      .mat-row {
+        &:hover {
+          background: $grey !important;
+        }
+      }
+    }
+    .mat-card {
+      box-shadow: none;
+    }
+  }
+}
+.dark-mat-stepper {
+  background-color: $darkergray;
+  .mat-stepper-horizontal,
+  .mat-stepper-vertical {
+    background-color: #424242;
+  }
+  .mat-stepper-horizontal-line {
+    border-top-color: rgba(255, 255, 255, 0.12);
+  }
+  .mat-step-header .mat-step-icon {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: $white;
+  }
+  .mat-step-header .mat-step-label.mat-step-label-active {
+    color: $white;
+  }
+  .mat-step-header .mat-step-label,
+  .mat-step-header .mat-step-optional {
+    color: rgba(255, 255, 255, 0.54);
+  }
+  .mat-step-header:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+  .mat-step-header .mat-step-icon-selected,
+  .mat-step-header .mat-step-icon-state-done,
+  .mat-step-header .mat-step-icon-state-edit {
+    background-color: $purple;
+    color: $white;
+  }
+}
+.dark-billing-container {
+  .edit-profile-card {
+    background-color: $darkgray;
+    color: $white;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+      0 3px 14px 2px rgba(0, 0, 0, 0.12) !important;
+    .mat-card-title {
+      color: $white !important;
+      font-weight: normal;
+    }
+    &:hover {
+      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.5), 0 8px 10px 1px rgba(0, 0, 0, 0.44),
+        0 3px 14px 2px rgba(0, 0, 0, 0.42) !important;
+    }
+  }
+}
+.dark-form {
+  .mat-hint {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .mat-select-arrow {
+    color: rgba(255, 255, 255, 0.54);
+  }
+  .mat-select-value {
+    color: rgba(255, 255, 255, 0.87) !important;
+  }
+  .mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  .mat-form-field.mat-focussed.mat-form-field-ripple {
+    background-color: $darkpurple !important;
+  }
+  .mat-form-field-invalid .mat-input-element {
+    caret-color: $red !important;
+  }
+  .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: $red !important;
+  }
+  .mat-form-field.mat-form-field-invalid .mat-form-field-outline {
+    color: $red !important;
+  }
+  .mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
+  .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent {
+    background-color: $red !important;
+  }
+  .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    color: rgba(255, 255, 255, 0.87);
+  }
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: rgba(255, 255, 255, 0.42);
+  }
+  .mat-form-field-label {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+  .mat-input-element::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+}
+.dark-outer-wrap {
+  .display-products-card {
+    background-color: $darkgray;
+    color: $lightwhite;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+      0 3px 14px 2px rgba(0, 0, 0, 0.12) !important;
+    &:hover {
+      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.5), 0 8px 10px 1px rgba(0, 0, 0, 0.44),
+        0 3px 14px 2px rgba(0, 0, 0, 0.42) !important;
+    }
+    .delete-btn {
+      color: $raspberry !important;
+    }
+    .view-btn {
+      color: $green !important;
+    }
+    .edit-btn {
+      color: $yellow !important;
+    }
+    .mat-divider {
+      border-top-color: rgba(255, 255, 255, 0.12);
+    }
+  }
+  .mat-paginator-outer-container {
+    color: $white;
+    background: $darkgray;
+  }
+}

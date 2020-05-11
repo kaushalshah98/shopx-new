@@ -1,0 +1,137 @@
+<app-navbar (IsFullscreen)="fullscreenstatus($event)" [isHidden]="true"></app-navbar>
+<app-jumbotron [Heading]="'user.main_heading.shopx_cart'"></app-jumbotron>
+<app-spinner [loading]="dataLoading" *ngIf="dimmed" class="centre-spinner"></app-spinner>
+<div
+  [ngClass]="{'table-wrapper':true, 'dark-table-wrapper' :( property.nightmode | async) ,dimmed: dimmed}"
+>
+  <mat-table
+    [ngStyle]="{'max-height': height+'px'}"
+    [dataSource]="dataSource"
+    matSort
+    class="box-elevation-z8"
+  >
+    <ng-container matColumnDef="image">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{"user.product.image" | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <img class="product-image" src="{{ element.image[0].imageurl }}" />
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{"user.product.name" | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{"user.product.quantity" | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div class="input-quantity">
+          <mat-form-field class="search-field" appearance="outline">
+            <input
+              autocomplete="off"
+              (keypress)="eventHandler($event)"
+              matInput
+              #qty
+              [formControl]="quantityformcontrol"
+              type="number"
+              min="1"
+              max="{{ element.quantity }}"
+              value="{{ element.qty }}"
+            />
+          </mat-form-field>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{"user.product.price" | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">₹ {{ element.price }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {{"user.product.action" | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button
+          mat-raised-button
+          class="add-btn"
+          matTooltip="{{'tooltip.update' | translate}}"
+          matTooltipPosition="left"
+          [matTooltipShowDelay]="500"
+          (click)="updateCart(quantityformcontrol.value, element)"
+        >
+          <mat-icon>refresh</mat-icon>
+        </button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button
+          mat-raised-button
+          class="view-btn"
+          matTooltip="{{'tooltip.quick_view' | translate}}"
+          matTooltipPosition="right"
+          [matTooltipShowDelay]="500"
+          (click)="quickview(element)"
+        >
+          <mat-icon>remove_red_eye</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <mat-header-cell *matHeaderCellDef>
+        <button
+          mat-raised-button
+          class="empty-btn"
+          matTooltip="{{'tooltip.empty_cart' | translate}}"
+          matTooltipPosition="above"
+          [matTooltipShowDelay]="500"
+          (click)="emptycart()"
+        >
+          {{"user.product.empty_the_cart" | translate}}
+        </button>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button
+          mat-raised-button
+          class="delete-btn"
+          matTooltip="{{'tooltip.delete_item' | translate}}"
+          matTooltipPosition="right"
+          [matTooltipShowDelay]="500"
+          (click)="removeFromCart(element)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+  <br />
+</div>
+<mat-card
+  [ngClass]="{'total-card':true, 'dark-total-card' :( property.nightmode | async) ,dimmed: dimmed}"
+>
+  {{"user.cart.total_price" | translate}} : ₹ {{totalprice}}
+</mat-card>
+<br /><br /><br />
+<mat-toolbar
+  [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async), 'u-text-right':true,'table-bottom':true}"
+>
+  <button class="pink-btn" mat-raised-button style="width: 20%;" [routerLink]="['/home']">
+    {{"user.cart.continue_shopping" | translate}}
+  </button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button class="red-btn" mat-raised-button style="width: 20%;" [routerLink]="['/checkout/#']">
+    {{"user.cart.checkout" | translate}}
+  </button>
+</mat-toolbar>

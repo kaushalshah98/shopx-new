@@ -1,0 +1,100 @@
+// Background color
+.u-background-color-primary {
+  background-color: var(map-get($map: $global-theme-variable, $key: global_color_primary));
+}
+
+.u-background-color-primary-lightest {
+  background-color: map-get($map: $global-color-lightest, $key: primary);
+}
+
+.u-background-color-blueberry {
+  background-color: map-get($map: $global-color, $key: blueberry);
+}
+
+.u-background-color-blueberry-lightest {
+  background-color: map-get($map: $global-color-lightest, $key: blueberry);
+}
+
+.u-background-color-mango {
+  background-color: map-get($map: $global-color, $key: mango);
+}
+
+.u-background-color-mango-lightest {
+  background-color: map-get($map: $global-color-lightest, $key: mango);
+}
+
+.u-background-color-raspberry {
+  background-color: var(map-get($map: $global-theme-variable, $key: global_color_raspberry));
+}
+
+.u-background-color-raspberry-lightest {
+  background-color: map-get($map: $global-color-lightest, $key: raspberry);
+}
+.u-background-color-greenapple {
+  background-color: map-get($map: $global-color, $key: greenapple);
+}
+
+.u-background-color-greenapple-lightest {
+  background-color: map-get($map: $global-color-lightest, $key: greenapple);
+}
+.u-background-color-neutral-darkest {
+  background-color: var(map-get($map: $global-theme-variable, $key: global_neutral_darkest));
+}
+
+.u-background-color-neutral {
+  background-color: map-get($map: $global-color, $key: neutral);
+}
+
+.u-background-color-neutral-light {
+  background-color: map-get($map: $global-color, $key: neutral-light);
+}
+
+.u-background-color-neutral-lighter {
+  background-color: map-get($map: $global-color, $key: neutral-lighter);
+}
+
+.u-background-color-neutral-lightest {
+  background-color: map-get($map: $global-color, $key: neutral-lightest);
+}
+
+.u-background-color-neutral-2 {
+  background-color: map-get($map: $global-color, $key: neutral-2);
+}
+
+.u-background-color-neutral-1 {
+  background-color: map-get($map: $global-color, $key: neutral-1);
+}
+
+.u-background-color-neutral-0 {
+  background-color: map-get($map: $global-color, $key: neutral-0);
+}
+
+.u-background-color-white {
+  background-color: map-get($map: $global-color, $key: white);
+}
+
+
+// SVG background color
+
+svg {
+  .u-svg-color-primary {
+    fill: var(map-get($map: $global-theme-variable, $key: global_color_primary));
+  }
+
+  .u-svg-color-secondary {
+    fill: var(map-get($map: $global-theme-variable, $key: global_neutral_darkest));
+  }
+
+  .u-svg-color-mango {
+    fill: map-get($map: $global-color, $key: mango);
+  }
+
+  .u-svg-color-raspberry {
+    fill: var(map-get($map: $global-theme-variable, $key: global_color_raspberry));
+  }
+
+  .u-svg-color-white {
+    fill: map-get($map: $global-color, $key:white);
+  }
+
+}

@@ -1,0 +1,15 @@
+{
+  "recommendations":[
+    "EditorConfig.EditorConfig",
+    "CoenraadS.bracket-pair-colorizer",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode",
+    "johnpapa.Angular2",
+    "shinnn.stylelint",
+    "robinbentley.sass-indented",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "ms-vscode.references-view",
+    "vscode-icons-team.vscode-icons",
+    "mikestead.dotenv"
+  ]
+}

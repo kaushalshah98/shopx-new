@@ -1,0 +1,29 @@
+<mat-expansion-panel
+  [ngClass]="{'nav-menu-list': true , 'dark-nav-menu-list' :( property.nightmode | async)}"
+  [disabled]="!item.childs"
+  [expanded]="step === depth"
+  (opened)="setStep(depth)"
+>
+  <mat-expansion-panel-header
+    [routerLinkActive]="getItemCSS(item)"
+    [routerLinkActiveOptions]="{ exact: true }"
+    [routerLink]="item.url ? item.url : router.url"
+    matRipple
+  >
+    <mat-panel-title [ngStyle]="{ 'margin-left': innerdepth * 12 + 'px' }">
+      <mat-icon [id]="item.name"> {{ item.icon }}</mat-icon>
+    </mat-panel-title>
+    <mat-panel-description class="menu-name">
+      {{ "menu_item."+item.name | lowercase | translate }}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <div>
+    <app-menuitems
+      *ngFor="let child of item.childs; index as i"
+      [item]="child"
+      [depth]="depth"
+      [innerdepth]="innerdepth + 1"
+    >
+    </app-menuitems>
+  </div>
+</mat-expansion-panel>

@@ -1,0 +1,14 @@
+<mat-card
+  [ngClass]="{'big-input':true,'dark-big-input' :( property.nightmode | async), 'has-focus': hasFocus}"
+  [ngStyle]="{'min-height': height + 'px' ,'border-radius' : radius + 'px'}"
+>
+  <input
+    autocomplete="off"
+    (focus)="hasFocus = true"
+    (blur)="hasFocus = false"
+    [value]="value"
+    placeholder="{{placeholder | translate}}"
+    [disabled]="disabled"
+  />
+  <ng-content></ng-content>
+</mat-card>

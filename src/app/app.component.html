@@ -1,0 +1,11 @@
+<body [ngClass]="{'dark-body': ( property.nightmode | async)}">
+  <router-outlet></router-outlet>
+</body>
+<button
+  mat-fab
+  *ngIf="isShow"
+  [ngClass]="{'white-scroll-btn': true , 'dark-white-scroll-btn' :( property.nightmode | async)}"
+  (click)="gotoTop()"
+>
+  <mat-icon>arrow_upward</mat-icon>
+</button>

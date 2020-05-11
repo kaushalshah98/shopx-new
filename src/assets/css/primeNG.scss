@@ -1,0 +1,73 @@
+body .ui-table {
+  .ui-table-thead {
+    > tr {
+      > th {
+        text-align: left;
+        border-color: map-get($map: $global-color, $key: neutral-lightest);
+        background-color: map-get($map: $global-color, $key: neutral-2);
+      }
+    }
+  }
+
+  .ui-table-tbody > tr > td {
+    .mat-icon-button {
+      height: 35px;
+      line-height: 35px;
+      margin: -7px 2px -8px;
+      .mat-icon {
+        font-size: 22px;
+      }
+    }
+  }
+
+  i {
+    &.pi {
+      color: map-get($map: $global-color, $key: neutral-darkest);
+    }
+  }
+}
+
+// Only for nested grid
+body .c-nested-grid {
+  .ui-table {
+    .ui-table-thead {
+      > tr {
+        > th {
+        }
+      }
+    }
+
+    .ui-table {
+      .ui-table-thead {
+        > tr {
+          > th {
+            background-color: map-get(
+              $map: $global-color,
+              $key: neutral-lightest
+            );
+          }
+        }
+      }
+
+      .ui-table {
+        .ui-table-thead {
+          > tr {
+            > th {
+              background-color: map-get($map: $global-color, $key: neutral-2);
+            }
+          }
+        }
+
+        .ui-table {
+          .ui-table-thead {
+            > tr {
+              > th {
+                background-color: map-get($map: $global-color, $key: neutral-1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

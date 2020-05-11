@@ -1,0 +1,78 @@
+.cdk-overlay-container {
+  // ----------------------------------Mat Option -----------------------------------------------
+
+  .dark-option.mat-active {
+    background: $darkergray !important;
+    color: $white !important;
+  }
+  .dark-option {
+    background-color: $darkgray;
+    color: $white;
+    &:hover {
+      background-color: $grey;
+    }
+  }
+
+  // ----------------------------------Mat Divider -----------------------------------------------
+
+  .divider {
+    border-top-color: rgba(0, 0, 0, 0.5) !important;
+  }
+
+  // ----------------------------------Mat Menu -----------------------------------------------
+  .mat-menu-content:not(:empty) {
+    padding: 0 !important;
+  }
+  .dark-menuu-item {
+    background-color: $darkgray !important;
+    color: $white !important;
+    &:hover {
+      background: $grey !important;
+    }
+    .mat-icon {
+      color: $white;
+    }
+  }
+  // ----------------------------------Mat Mini Fab -----------------------------------------------
+
+  .white-btn {
+    background-color: $darkblue !important;
+  }
+  .dark-btn {
+    background-color: $darkpurple !important;
+  }
+  .white-btn,
+  .dark-btn {
+    height: 30px !important;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 30px !important;
+    .mat-icon {
+      color: $white !important;
+      margin: -10px 0 0 0 !important;
+    }
+  }
+}
+
+// ----------------------------------Global css -----------------------------------------------
+
+.mat-button-focus-overlay {
+  background-color: transparent !important;
+}
+.mat-tab-body.mat-tab-body-active {
+  overflow-y: hidden !important;
+}
+button:focus {
+  outline: none !important;
+}
+.mat-dialog-container {
+  overflow: hidden;
+}
+.mat-horizontal-content-container {
+  padding: 0 !important;
+}
+.chips {
+  top: 100px;
+  left: 4%;
+  position: absolute;
+}

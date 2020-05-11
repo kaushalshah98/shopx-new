@@ -1,0 +1,22 @@
+<app-loading-bar></app-loading-bar>
+<div class="c-wrapper" dynamicTheme>
+  <app-navbar
+    (IsFullscreen)="fullscreenstatus($event)"
+    [siteLeftPanel]="siteLeftPanel"
+  ></app-navbar>
+  <mat-sidenav-container class="sidenav-container" [hasBackdrop]="false">
+    <mat-sidenav
+      [ngClass]="{'c-site-left-panel': true , 'dark-c-site-left-panel' :( property.nightmode | async)}"
+      #siteLeftPanel
+      mode="side"
+      opened
+    >
+      <app-left-panel-container [menuItems]="menuItems"></app-left-panel-container>
+    </mat-sidenav>
+    <mat-sidenav-content
+      [ngClass]="{'c-site-middle-content': true , 'dark-c-site-middle-content' :( property.nightmode | async)}"
+    >
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

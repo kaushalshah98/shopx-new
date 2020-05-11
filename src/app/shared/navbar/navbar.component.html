@@ -1,0 +1,146 @@
+<mat-toolbar
+  class="nav-bar"
+  [ngClass]="{'nav-bar': true , 'black-nav-bar' :( property.nightmode | async)}"
+>
+  <mat-toolbar-row>
+    <button
+      id="btnLeftPanel"
+      mat-button
+      class="nav-button"
+      (click)="siteLeftPanel.toggle()"
+      [hidden]="isHidden"
+    >
+      <i class="material-icons">
+        menu
+      </i>
+    </button>
+    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    <img
+      (click)="go_to_home()"
+      style="height:22px"
+      src=" {{( property.nightmode | async)?'../../../assets/images/shopx.png' :'../../../assets/images/shopx-logo-white.png'}}"
+    />
+    <div class="search-bar" id="mainsearch" [hidden]="isHidden || isadmin">
+      <mat-form-field appearance="outline">
+        <input autocomplete="off" matInput />
+        <mat-icon matSuffix class="search-icon">search</mat-icon>
+      </mat-form-field>
+    </div>
+    <span class="example-spacer"></span>
+    <div class="navbar-buttons">
+      <button mat-raised-button [matMenuTriggerFor]="menu">
+        {{'nav_bar.hello'| translate}}, {{ getUserName() }}
+        <mat-icon>arrow_drop_down </mat-icon>
+      </button>
+      &nbsp;&nbsp;
+      <mat-menu #menu="matMenu" xPosition="after">
+        <ng-container *ngFor="let item of optionmenu">
+          <button
+            [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+            mat-menu-item
+            (click)="route(item.url)"
+          >
+            <mat-icon>{{item.icon}}</mat-icon>{{item.name | translate}}
+          </button>
+        </ng-container>
+        <mat-divider [ngClass]="{'divider':( property.nightmode | async)}"></mat-divider>
+        <button
+          mat-menu-item
+          [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+          (click)="contact()"
+        >
+          <mat-icon>help</mat-icon>{{'nav_bar.menu.contact_us' | translate}}
+        </button>
+        <button
+          mat-menu-item
+          [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+          (click)="route('/creators')"
+        >
+          <mat-icon>supervisor_account</mat-icon>{{'nav_bar.menu.about_the_creators' | translate}}
+        </button>
+        <!-- <button mat-menu-item [ngClass]="{'dark-menuu-item':( property.nightmode | async)}">
+          <mat-icon>nights_stay</mat-icon>{{'nav_bar.menu.night_mode' |
+          translate}}&nbsp;&nbsp;&nbsp;&nbsp;
+          <mat-slide-toggle [(ngModel)]="value" (change)="changetheme(value)" color="primary">
+          </mat-slide-toggle>
+        </button> -->
+        <mat-divider [ngClass]="{'divider':( property.nightmode | async)}"></mat-divider>
+        <button
+          mat-menu-item
+          [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+          (click)="logout()"
+        >
+          <mat-icon>exit_to_app</mat-icon>{{ getLoginStatus() | translate }}
+        </button>
+      </mat-menu>
+      <button
+        [hidden]="isadmin"
+        matTooltip="{{'tooltip.go_to_cart' | translate}}"
+        mat-raised-button
+        (click)="goToCart()"
+      >
+        <mat-icon
+          matBadge="{{property.cartsize |async}}"
+          matBadgeColor="warn"
+          matBadgeOverlap="false"
+          class="cart-icon"
+          >shopping_cart
+        </mat-icon>
+      </button>
+      <ng-container *ngIf="!isadmin"> &nbsp;&nbsp; </ng-container>
+      <button
+        mat-raised-button
+        (click)="configureFullscreen()"
+        matTooltip="{{'tooltip.'+getText() | translate}}"
+      >
+        <mat-icon class="fullscreen-icon">{{ getText() }}</mat-icon>
+      </button>
+      &nbsp;&nbsp;
+      <button
+        matTooltip="{{'tooltip.changetheme' | translate}}"
+        mat-raised-button
+        [matMenuTriggerFor]="thememenu"
+      >
+        <mat-icon>format_paint </mat-icon>
+      </button>
+      <mat-menu #thememenu="matMenu" xPosition="after">
+        <button
+          [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+          mat-menu-item
+          (click)="onThemeChange(false)"
+        >
+          <button mat-mini-fab class="white-btn">
+            <mat-icon *ngIf="( property.nightmode | async) === false">check_circle</mat-icon>
+          </button>
+          {{'nav_bar.menu.light' | translate}}
+        </button>
+        <button
+          [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+          mat-menu-item
+          (click)="onThemeChange(true)"
+        >
+          <button mat-mini-fab class="dark-btn">
+            <mat-icon *ngIf="( property.nightmode | async) === true">check_circle</mat-icon>
+          </button>
+          {{'nav_bar.menu.dark' | translate}}
+        </button>
+      </mat-menu>
+      &nbsp;&nbsp;
+      <button mat-raised-button [matMenuTriggerFor]="languagemenu">
+        {{ currentLanguage }}
+        <mat-icon>arrow_drop_down </mat-icon>
+      </button>
+      <mat-menu #languagemenu="matMenu" xPosition="after">
+        <ng-container *ngFor="let lang of translate.getLangs()">
+          <button
+            [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+            mat-menu-item
+            (click)="onLanguageSelect(lang)"
+          >
+            {{"language."+lang | lowercase | translate }}
+          </button>
+        </ng-container>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

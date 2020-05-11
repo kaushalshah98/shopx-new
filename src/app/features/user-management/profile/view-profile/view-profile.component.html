@@ -1,0 +1,65 @@
+<div
+  [ngClass]="{'profile-container':true,'dark-profile-container' :( property.nightmode | async)}"
+  [ngStyle]="{'padding-top': (paddingtop | async)  +'px'}"
+  fxLayout="row"
+  fxLayoutAlign="start center"
+>
+  <div fxFlex="40%">
+    <mat-card class="profile-image-card">
+      <mat-card-header>
+        <mat-card-title>{{"user.form.profile_pic" | translate}}</mat-card-title>
+      </mat-card-header>
+      <div class="profile-image">
+        <img
+          mat-card-image
+          [src]="
+            userdata != undefined
+              ? userdata.profilepic
+              : '../../../../assets/images/icon-login-profile.svg'
+          "
+          alt="Photo of a Shiba Inu"
+        />
+      </div>
+    </mat-card>
+  </div>
+  <div fxFlex="60%">
+    <mat-card class="profile-card">
+      <mat-card-title>{{"user.form_heading.profile_details" | translate}}</mat-card-title>
+      <mat-card-content>
+        <form [ngClass]="{'edit-form':true,'dark-form': ( property.nightmode | async)}">
+          <mat-form-field appearance="outline">
+            <mat-label>{{"user.form.username" | translate}}</mat-label>
+            <input autocomplete="off" matInput readonly value="{{ userdata?.name }}" />
+            <mat-icon class="person-icon" matSuffix>person</mat-icon>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>{{"user.form.email" | translate}}</mat-label>
+            <input autocomplete="off" matInput readonly value="{{ userdata?.email }}" />
+            <mat-icon class="email-icon" matSuffix>email</mat-icon>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>{{"user.form.password" | translate}}</mat-label>
+            <input
+              autocomplete="off"
+              matInput
+              [type]="hide ? 'password' : 'text'"
+              readonly
+              value="{{ userdata?.password }}"
+            />
+            <button
+              mat-icon-button
+              class="password-btn"
+              matTooltip="{{hide ? ('tooltip.show' | translate) : ('tooltip.hide'  |translate) }}"
+              matTooltipPosition="left"
+              matSuffix
+              matSuffix
+              (click)="hide = !hide"
+            >
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

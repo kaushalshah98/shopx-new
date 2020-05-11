@@ -1,0 +1,21 @@
+<app-jumbotron [Heading]="'user.main_heading.homepage'"></app-jumbotron>
+<div class="product-page">
+  <app-spinner [loading]="dataLoading"></app-spinner>
+  <ng-container *ngIf="show"
+    ><app-category-card
+      [items_category1]="items_category1"
+      [items_category2]="items_category2"
+    ></app-category-card>
+    <app-product-carousel2
+      [item1]="productcarouselitems1"
+      [item2]="productcarouselitems2"
+      [item3]="productcarouselitems3"
+    ></app-product-carousel2>
+    <app-image-slider
+      [items_slider1]="items_slider1"
+      [items_slider2]="items_slider2"
+    ></app-image-slider>
+    <app-category-tiles [categoryitems]="categoryitems"></app-category-tiles>
+  </ng-container>
+</div>
+<app-footer [position]="'sticky'"></app-footer>

@@ -1,0 +1,14 @@
+@import '../../../assets/css/var.scss';
+
+.whiteDialogAction {
+  float: right;
+
+  .btnYes {
+    color: $white;
+    background-color: $darkblue;
+  }
+  .btnNo {
+    color: $white;
+    background-color: $red;
+  }
+}

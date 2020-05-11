@@ -1,0 +1,35 @@
+<div class="profile-container" fxLayout="row" fxLayoutAlign="start">
+  <div fxFlex="60%">
+    <mat-card class="profile-image-card box-elevation-z8">
+      <!-- <mat-card-header>
+        <mat-card-title>{{"user.form.profile_pic" | translate}}</mat-card-title>
+      </mat-card-header> -->
+      <div class="profile-image">
+        <ng-container *ngFor="let image of product index as i">
+          <ng-container *ngIf="getnumber(i)">
+            <img src="{{image.imageurl}}" />
+            <!-- <ngx-image-zoom
+              [thumbImage]="image.imageurl"
+              [magnification]="1.5"
+              [enableScrollZoom]="true"
+              [enableLens]="true"
+              [lensWidth]="150"
+              [lensHeight]="150"
+            ></ngx-image-zoom> -->
+          </ng-container>
+        </ng-container>
+      </div>
+    </mat-card>
+  </div>
+
+  <div fxFlex="40%" class="side-image">
+    <ng-container *ngFor="let image of product index as i">
+      <mat-card class="small-card box-elevation-z8" (click)="changeimage(i)">
+        <div class="small-image">
+          <img src="{{image.imageurl}}" />
+        </div>
+      </mat-card>
+      <br />
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+@import '../../../../assets/css/var.scss';
+.nav-menu-list {
+  margin-top: -5px !important;
+  .menu-name {
+    color: rgba(34, 34, 34, 1);
+  }
+
+  .mat-expansion-panel-header {
+    padding: 0px 24px 0 20px !important;
+
+    &.activeMenu {
+      background-color: #673ab7 !important;
+      box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 2, 87, 0.4);
+      color: $white !important;
+    }
+
+    .mat-expansion-panel-header-title {
+      flex: 0 0 24px !important;
+    }
+
+    .mat-expansion-panel-header-description {
+      margin-top: 4px;
+      font-weight: 300;
+      font-size: 14px;
+      font-family: 'Bliss 2', sans-serif;
+    }
+  }
+
+  .mat-expansion-panel-header[aria-disabled='true'] {
+    color: rgba(34, 34, 34, 1);
+    cursor: pointer !important;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.09);
+    }
+  }
+
+  .mat-expansion-panel-content {
+    .mat-expansion-panel-body {
+      padding: 0px 0px 0px 0px !important;
+      margin-bottom: -10px !important;
+    }
+  }
+}
+.dark-nav-menu-list {
+  margin-top: -5px !important;
+  .menu-name {
+    color: $white;
+  }
+  .mat-expansion-panel-header {
+    background-color: $darkgray;
+    padding: 0px 24px 0 20px !important;
+    color: $white;
+    &.activeMenu {
+      background-color: $darkpurple !important;
+      box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 2, 87, 0.4);
+      color: $white !important;
+    }
+    &:focus {
+      background: $darkgray !important;
+    }
+    &:hover {
+      background: $grey !important;
+    }
+    .mat-expansion-panel-header-title {
+      flex: 0 0 24px !important;
+      color: $white !important;
+    }
+
+    .mat-expansion-panel-header-description {
+      margin-top: 4px;
+      font-weight: 300;
+      font-size: 14px;
+      font-family: 'Bliss 2', sans-serif;
+      // background-color: $darkgray;
+    }
+    .mat-expansion-indicator::after {
+      color: $white !important;
+    }
+  }
+
+  .mat-expansion-panel-header[aria-disabled='true'] {
+    color: $white;
+    background-color: $darkgray;
+    cursor: pointer !important;
+
+    &:hover {
+      background: $grey;
+    }
+    &.activeMenu {
+      background-color: $darkpurple !important;
+    }
+    &:active {
+      background-color: $darkpurple !important;
+    }
+    &:focus {
+      background: $darkpurple !important;
+    }
+  }
+
+  .mat-expansion-panel-content {
+    .mat-expansion-panel-body {
+      padding: 0px 0px 0px 0px !important;
+      margin-bottom: -10px !important;
+      background-color: $darkgray;
+    }
+  }
+}

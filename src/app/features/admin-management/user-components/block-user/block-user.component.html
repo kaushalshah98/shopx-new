@@ -1,0 +1,21 @@
+<app-jumbotron [Heading]="'admin.main_heading.block_user'"></app-jumbotron>
+<div class="big-input-container" [ngStyle]="{'min-height': (property.height | async) +'px'}">
+  <div class="big-delete-input">
+    <app-big-input
+      [placeholder]="'admin.productform.enter_the_userid'"
+      (keyup)="onInputChanged($event.target.value)"
+    >
+      <app-big-input-action
+        [color]="'warn'"
+        [iconname]="'block'"
+        (action)="onBlockUser()"
+        [disabled]="isDisabled"
+        matTooltip="{{'tooltip.block' | translate}}"
+        [matTooltipShowDelay]="1000"
+        matTooltipPosition="below"
+      >
+      </app-big-input-action>
+    </app-big-input>
+  </div>
+</div>
+<app-footer [position]="'sticky'"></app-footer>

@@ -1,0 +1,170 @@
+<div
+  [ngClass]="{'billing-container':true,'dark-billing-container': ( property.nightmode | async)}"
+  [ngStyle]="{'padding-top': (paddingtop | async) +'px'}"
+>
+  <mat-card class="edit-profile-card">
+    <mat-card-title>
+      {{"user.form_heading.enter_billing_details" | translate}}
+    </mat-card-title>
+    <mat-card-content>
+      <form [ngClass]="{'dark-form': ( property.nightmode | async)}" [formGroup]="billingform">
+        <table class="table-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field appearance="outline">
+                <mat-label>{{"user.form.name" | translate}} </mat-label>
+                <input autocomplete="off" required matInput formControlName="nameFormControl" />
+                <mat-error
+                  *ngIf="hasError('nameFormControl','minlength') && !(hasError('nameFormControl','pattern'))"
+                >
+                  {{"user.form.name" | translate}}
+                  {{"user.form_validations.must_be_at_least_3_characters_long" | translate}}
+                </mat-error>
+                <mat-error *ngIf="hasError('nameFormControl','pattern')">
+                  {{"user.form_validations.invalid_input" |translate}}
+                </mat-error>
+                <mat-error *ngIf="hasError('nameFormControl','required')">
+                  {{"user.form.name" | translate}} {{"user.form_validations.is_required" |
+                  translate}}
+                </mat-error>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label>{{"user.form.lastname" | translate}}</mat-label>
+                <input autocomplete="off" required matInput formControlName="LastnameFormControl" />
+                <mat-error
+                  *ngIf="hasError('LastnameFormControl','minlength') && !(hasError('LastnameFormControl','pattern'))"
+                >
+                  {{"user.form.lastname" | translate}} {{"user.form_validations.is_required" |
+                  translate}}
+                </mat-error>
+                <mat-error *ngIf="hasError('LastnameFormControl','pattern')">
+                  {{"user.form_validations.invalid_input" |translate}}
+                </mat-error>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label>{{"user.form.email" | translate}}</mat-label>
+                <input autocomplete="off" required matInput formControlName="emailFormControl" />
+                <mat-error *ngIf="hasError('emailFormControl','email')">
+                  {{"user.form_validations.please_enter_a_valid_email_address" | translate}}
+                </mat-error>
+                <mat-error *ngIf="hasError('emailFormControl','required')">
+                  {{"user.form.email" | translate}} {{"user.form_validations.is_required" |
+                  translate}}
+                </mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <table class="table-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field appearance="outline">
+                <mat-label>{{"user.form.adress_line_1" | translate}}</mat-label>
+                <input autocomplete="off" required matInput formControlName="address1FormControl" />
+                <mat-error *ngIf="hasError('address1FormControl','required')">
+                  {{"user.form.adress_line_1" | translate}} {{"user.form_validations.is_required" |
+                  translate}}
+                </mat-error>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance="outline">
+                <mat-label>{{"user.form.adress_line_2" | translate}}</mat-label>
+                <input autocomplete="off" matInput formControlName="address2FormControl" />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <table class="table-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field appearance="outline">
+                <mat-label>{{"user.form.country" | translate}}</mat-label>
+                <mat-select required formControlName="selectedcountry">
+                  <mat-option
+                    [ngClass]="{'dark-option': ( property.nightmode | async)}"
+                    *ngFor="let country of country"
+                    [value]="country.name"
+                  >
+                    {{ country.name }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="hasError('selectedcountry','required')">
+                  {{"user.form_validations.you_must_make_a_selection" | translate}}
+                </mat-error>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label>{{"user.form.state" | translate}}</mat-label>
+                <mat-select required formControlName="selectedstate">
+                  <mat-option
+                    [ngClass]="{'dark-option': ( property.nightmode | async)}"
+                    *ngFor="let state of state"
+                    [value]="state.name"
+                  >
+                    {{ state.name }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="hasError('selectedstate','required')">
+                  {{"user.form_validations.you_must_make_a_selection" | translate}}
+                </mat-error>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label>{{"user.form.pincode" | translate}}</mat-label>
+                <input
+                  autocomplete="off"
+                  required
+                  matInput
+                  formControlName="PincodeFormControl"
+                  #pinCode
+                  placeholder="Ex. 94105"
+                />
+                <mat-error
+                  *ngIf="hasError('PincodeFormControl','maxlength') && !(hasError('PincodeFormControl','pattern'))"
+                >
+                  {{"user.form.pincode" | translate}} {{"user.form_validations.must_be_of_6_digits"
+                  | translate}}
+                </mat-error>
+                <mat-error *ngIf="hasError('PincodeFormControl','pattern')">
+                  {{"user.form_validations.invalid_input" |translate}}
+                </mat-error>
+                <mat-error *ngIf="hasError('PincodeFormControl','required')">
+                  {{"user.form.pincode" | translate}} {{"user.form_validations.is_required" |
+                  translate}}
+                </mat-error>
+                <mat-hint align="end">{{ pinCode.value.length }} / 6 </mat-hint>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+<!-- <div class="centre-button">
+  <button mat-raised-button color="warn" [disabled]="billingform.invalid" (click)="goForward()">
+    {{"user.form.confirm_and_continue" | translate}}
+  </button>
+</div> -->
+<mat-toolbar
+  [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}"
+  class="u-text-right centre-button"
+>
+  <button
+    mat-raised-button
+    class="pink-btn"
+    [disabled]="billingform.invalid"
+    (click)="[goForward(),goForward()]"
+  >
+    {{"user.form.confirm_and_continue" | translate}}
+  </button>
+</mat-toolbar>

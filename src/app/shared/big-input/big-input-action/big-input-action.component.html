@@ -1,0 +1,8 @@
+<button
+  [ngClass]="{'big-btn':true,'dark-big-btn' :( property.nightmode | async)}"
+  mat-raised-button
+  [disabled]="disabled"
+  (click)="onClick()"
+>
+  <mat-icon>{{iconname}}</mat-icon>
+</button>

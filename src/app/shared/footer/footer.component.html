@@ -1,0 +1,14 @@
+<mat-toolbar
+  [ngClass]="{'footer': true , 'dark-footer' :( property.nightmode | async)}"
+  [ngStyle]="{position: position}"
+>
+  <mat-toolbar-row>
+    <span>© 2020</span>
+    <span class="signature">
+      <span>{{"footer.made_with" | translate}} </span> &nbsp;&nbsp;
+      <mat-icon>favorite</mat-icon>
+      &nbsp;&nbsp;<span>{{"footer.by" | translate}} Kaushal Shah</span>
+    </span>
+    <span class="version">1.0.0</span>
+  </mat-toolbar-row>
+</mat-toolbar>

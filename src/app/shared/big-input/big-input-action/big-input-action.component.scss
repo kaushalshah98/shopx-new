@@ -1,0 +1,25 @@
+@import '../../../../assets/css/var.scss';
+.big-btn {
+  background-color: $red;
+  color: $white;
+  padding: 0;
+  min-width: 80px;
+  min-height: 60px;
+  margin-right: 25px;
+  margin-top: 20px;
+  &.mat-raised-button[disabled]:not([class*='mat-elevation-z']) {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 0 rgba(0, 0, 0, 0.14), 0 0 0 0 rgba(0, 0, 0, 0.12) !important;
+    background-color: rgba(0, 0, 0, 0.12) !important;
+    color: rgba(0, 0, 0, 0.26) !important;
+    cursor: default !important;
+  }
+  mat-icon {
+    font-size: 30px;
+    position: relative;
+    left: -2px;
+    top: -2px;
+  }
+}
+.dark-big-btn {
+  background-color: $raspberry !important;
+}

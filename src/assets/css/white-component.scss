@@ -1,0 +1,533 @@
+@import './var.scss';
+
+//--------------------------- Main Wrapper Used in ------------------------------
+//   1.Adminpage
+//   2.Userpage
+.c-wrapper {
+  padding-top: 0 !important;
+  // background-color: #1397ca9e;
+  // background-color: #232f3e;
+  // background-color: rgb(40, 53, 147);
+  // background-color: black;
+  // color: white;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.14), 0 0 15px rgba(0, 0, 0, 0.35);
+  .sidenav-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// -----------------------Table Used in --------------------------------------------
+//   1.Cart
+//   2.Wishlist
+//   3.Recipt
+
+.table-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 70px 36px 70px;
+  .mat-table {
+    overflow: auto;
+    width: 100%;
+    padding: 0px 80px 0px 80px;
+    .product-image {
+      width: 50px;
+      height: 50px;
+    }
+    .mat-raised-button {
+      min-width: 40px;
+      line-height: 27px;
+      padding: 0 13px;
+    }
+    .delete-btn {
+      margin-left: 50px;
+      background-color: $red;
+      color: $white;
+    }
+    .empty-btn {
+      background-color: $darkgreen;
+      color: $white;
+      margin-left: 25px;
+    }
+    .view-btn {
+      color: $white;
+      background-color: $blueberry;
+    }
+    .add-btn {
+      color: $black;
+      background-color: $yellow;
+    }
+    mat-row {
+      min-height: 65px;
+      &:hover {
+        background: whitesmoke;
+      }
+    }
+    .input-quantity {
+      font-size: 10px;
+      margin-top: 13px;
+      .search-field {
+        width: 100px;
+        .mat-input-element {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+.table-bottom {
+  display: flex;
+  justify-content: center;
+}
+.total-card {
+  display: flex !important;
+  justify-content: center;
+  background-color: rgba(104, 58, 183, 0.212);
+}
+//-----------------------Form Used in ----------------------------------------------
+//   1.Login
+//   2.Logout
+
+.input-template {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .input-card {
+    min-width: 300px;
+    width: 420px;
+    min-height: 560px;
+    &.mat-card {
+      padding: 0;
+      border-radius: 10px;
+      .mat-card-header {
+        margin: 0;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        background-color: #33b5e5;
+        // background-color: #3f51b5;
+        height: 100px;
+        justify-content: center;
+        .mat-card-title {
+          color: white;
+          position: relative;
+          height: 60px;
+          font-size: 25px;
+          top: 35px;
+        }
+      }
+      .mat-actions {
+        .mat-raised-button {
+          width: 72%;
+          height: 45px;
+          margin-bottom: 20px;
+          border-radius: 20px;
+          font-size: 18px;
+        }
+        text-align: center;
+        font-size: 10px;
+        .signin-btn {
+          border: 3px solid $darkergreen;
+          color: $darkergreen;
+          &:hover {
+            cursor: pointer;
+            color: $white;
+            background-color: $darkergreen;
+          }
+        }
+        .blue-btn {
+          // border: 3px solid #3f51b5;
+          border: 3px solid #33b5e5;
+          // color: #3f51b5;
+          color: #33b5e5;
+          &:hover {
+            cursor: pointer;
+            color: white;
+            // background-color: #3f51b5;
+            background-color: #33b5e5;
+          }
+        }
+        .facebook-btn {
+          color: #3f51b5c4;
+          border: 3px solid #3f51b5c4;
+          &:hover {
+            cursor: pointer;
+            color: white;
+            background-color: #3f51b5;
+          }
+        }
+        .google-btn {
+          color: #f44336d9;
+          border: 3px solid #f44336d9;
+          &:hover {
+            cursor: pointer;
+            color: white;
+            background-color: #f44336;
+          }
+        }
+      }
+
+      .input-text {
+        margin-top: -25px;
+        text-align: center;
+        .forgot-text {
+          position: relative;
+          top: -8px;
+          color: cadetblue;
+        }
+      }
+    }
+    .input-form {
+      min-width: 295px;
+      width: 100%;
+      padding: 30px 60px 0px 60px;
+      .input-full-width {
+        margin-bottom: 10px;
+        width: 100%;
+        .mat-input-element {
+          margin-top: 1em;
+        }
+        .mat-form-field-label {
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}
+
+//----------------------- Expansion Panels Used in --------------------------------------
+//   1.Admin User Orders
+//   2.User Order
+
+.order-container {
+  padding: 50px 50px 32px 50px;
+  min-height: 540px;
+  .cancel-btn {
+    color: $blueberry;
+  }
+  .right-btn {
+    color: $red;
+  }
+  .mat-expansion-panel {
+    border-radius: 10px !important;
+    &:hover {
+      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.1), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0 3px 14px 2px rgba(0, 0, 0, 0.12);
+      // transform: translateY(4px);
+    }
+    .mat-expansion-panel-header {
+      height: 80px !important;
+      background: #673ab714;
+      // &:hover {
+      //   background-color: #673ab71c;
+      // }
+      .user-image {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        position: relative;
+        left: 5%;
+        object-fit: cover;
+      }
+      p {
+        position: relative;
+        top: 17%;
+        left: -37%;
+      }
+    }
+    .mat-table {
+      .view-btn {
+        color: $blueberry;
+      }
+      .cancel-btn {
+        background-color: $red;
+        color: $white;
+      }
+      width: 100%;
+      th.mat-header-cell:last-of-type {
+        padding-right: 0px;
+      }
+      .mat-row {
+        &:hover {
+          background: whitesmoke;
+        }
+        .product-image {
+          width: 30px;
+          height: 30px;
+        }
+      }
+      .cancel-btn {
+        position: relative;
+        left: -55px;
+      }
+    }
+    .mat-card {
+      box-shadow: none;
+    }
+  }
+}
+.order-button-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .order-button {
+    width: 30%;
+  }
+}
+//----------------------- Tables Used in --------------------------------------
+//   1.Admin View User
+//   2.Admin view products
+
+.outer-wrap {
+  padding: 55px 80px 0px 80px;
+  min-height: 540px;
+  .display-products-card {
+    border-radius: 10px;
+    // box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    //   0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
+    &:hover {
+      // -webkit-box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.75);
+      // -moz-box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0 3px 14px 2px rgba(0, 0, 0, 0.12);
+      transition-duration: 500ms;
+    }
+    .side-icon {
+      padding-right: 30px;
+    }
+    table {
+      width: 100%;
+      .small-size-image {
+        width: 40px;
+        height: 40px;
+      }
+      .example-element-detail {
+        overflow: hidden;
+        display: flex;
+        .example-element-diagram {
+          min-width: 115px;
+          border: 2px solid black;
+          padding: 8px;
+          font-weight: lighter;
+          margin: 8px 0;
+          height: 124px;
+          display: flex;
+          justify-content: center;
+          .large-image {
+            width: 100px;
+            height: 100px;
+          }
+        }
+
+        .example-element-description {
+          padding: 16px;
+
+          .example-element-description-attribution {
+            opacity: 0.5;
+          }
+        }
+      }
+      tr.example-detail-row {
+        height: 0;
+      }
+      tr.example-element-row:not(.example-expanded-row) {
+        &:hover {
+          background: whitesmoke;
+        }
+        &:active {
+          background: #efefef;
+        }
+      }
+
+      .example-element-row td {
+        border-bottom-width: 0;
+      }
+      .user-element-row {
+        &:hover {
+          background: whitesmoke;
+        }
+      }
+
+      .example-element-symbol {
+        font-weight: bold;
+        font-size: 40px;
+        line-height: normal;
+      }
+      .delete-btn {
+        color: $red;
+      }
+      .view-btn {
+        color: $blueberry;
+      }
+      .edit-btn {
+        color: $yellow;
+      }
+    }
+    .mat-raised-button {
+      min-width: 45px !important;
+      line-height: 30px !important;
+      padding: 0 10px !important;
+    }
+    .search-block {
+      width: 25%;
+    }
+  }
+}
+//----------------------- Cards Used in --------------------------------------
+//   1.Admin HomePage
+//   2.User HomePage
+
+.space-medium {
+  padding: 50px 85px 0px 85px;
+  min-height: 540px;
+  .containerr {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    .roww {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -15px;
+      margin-left: -15px;
+      .showcase-block {
+        margin-bottom: 30px;
+        min-height: 100%;
+        border-radius: 10px;
+        background-color: $lightestgrey;
+        padding: 30px 30px 0px 30px;
+        text-align: center;
+        &:hover {
+          background-color: $white;
+          box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+            0 3px 14px 2px rgba(0, 0, 0, 0.12);
+          transform: translateY(-4px);
+          transition-duration: 500ms;
+        }
+        .display-logo {
+          margin-bottom: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .showcase-img {
+          padding-top: 18px;
+          .small-image {
+            width: 100%;
+            height: 100%;
+            max-height: 150px;
+            max-width: 150px;
+          }
+        }
+        a {
+          text-decoration: none;
+          color: #1c1e1e;
+          -webkit-transition: all 0.3s;
+          -moz-transition: all 0.3s;
+          transition: all 0.3s;
+          &:hover {
+            text-decoration: none;
+            color: rgb(103, 58, 183);
+          }
+        }
+      }
+    }
+  }
+}
+//----------------------- Forms Used in --------------------------------------
+//   1.Admin Addproduct
+//   2.Admin Updateproduct
+
+.billing-container {
+  padding: 50px 100px 50px 100px;
+  min-height: 570px;
+  .edit-profile-card {
+    min-height: 265px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 14px 0px rgba(92, 69, 69, 0.1);
+    &:hover {
+      -webkit-box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0 3px 14px 2px rgba(0, 0, 0, 0.12);
+      transition-duration: 500ms;
+      // transform: scale(1.008);
+      // transition: ease-in;
+    }
+    .table-full-width {
+      width: 100%;
+      td {
+        padding-right: 25px;
+      }
+    }
+    .mat-form-field {
+      width: 100%;
+    }
+  }
+}
+
+//----------------------- Cards Used in --------------------------------------
+//   1.Admin EditProfile
+//   2.User Profile
+
+.profile-container {
+  width: 100%;
+  min-height: 450px;
+  padding: 0px 85px 0px 85px;
+  .profile-card {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
+    &:hover {
+      -webkit-box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0 3px 14px 2px rgba(0, 0, 0, 0.12);
+      // transform: translateY(-2px);
+      transition-duration: 500ms;
+    }
+    .edit-form {
+      font-size: 13px;
+    }
+    .mat-form-field {
+      width: 100%;
+    }
+  }
+  .profile-image-card {
+    height: 100%;
+    width: 100%;
+    max-width: 300px;
+    // max-height: 340px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
+    .profile-image {
+      max-height: 260px;
+      margin: -3px -15px;
+      padding: 16px;
+      overflow: hidden;
+    }
+    .action-wrap {
+      padding: 50px 70px;
+      .mat-raised-button {
+        width: 170%;
+        height: 100px;
+      }
+    }
+    &:hover {
+      -webkit-box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0 3px 14px 2px rgba(0, 0, 0, 0.12);
+      // transform: translateY(-2px);
+      transition-duration: 500ms;
+    }
+  }
+}

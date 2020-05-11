@@ -1,0 +1,176 @@
+<app-jumbotron [Heading]="'admin.main_heading.all_products'"></app-jumbotron>
+<app-spinner [loading]="dataLoading" class="centree-spinner"></app-spinner>
+<div [ngClass]="{'outer-wrap': true , 'dark-outer-wrap' :( property.nightmode | async)}">
+  <mat-card class="display-products-card">
+    <mat-card-content>
+      <div [ngClass]="{'dark-form': ( property.nightmode | async)}">
+        <div fxLayout="row">
+          <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.gt-md="40">
+            <mat-form-field class="mat-block" id="matFrmFieldUserStatus">
+              <mat-select
+                id="matSelectUserStatus"
+                placeholder="{{'admin.productform.category' | translate}}"
+                [(value)]="selectedStatus"
+                (selectionChange)="sortchanged(selectedStatus)"
+              >
+                <mat-option
+                  *ngFor="let category of category"
+                  [ngClass]="{'dark-option': ( property.nightmode | async)}"
+                  value="{{category.name}}"
+                  >{{category.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="side-icon">
+          <button
+            mat-icon-button
+            class="pull-right"
+            matTooltip="{{'tooltip.add_item' | translate}}"
+            matTooltipPosition="left"
+          >
+            <mat-icon>add_circle</mat-icon>
+          </button>
+        </div>
+        <mat-form-field class="search-block" floatLabel="never">
+          <input
+            autocomplete="off"
+            matInput
+            autocomplete="off"
+            (keyup)="applyFilter($event)"
+            placeholder="{{'admin.table.search' | translate}}"
+          />
+          <mat-icon matSuffix style="font-size: 18px;">search</mat-icon>
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <div [ngClass]="{'dark-table-wrapper' :( property.nightmode | async) ,dimmed: dimmed}">
+          <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
+            <ng-container matColumnDef="image">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>
+                {{"admin.table.image" | translate}}
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <img class="small-size-image" src="{{ element.image[0].imageurl }}" />
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>
+                {{"admin.table.image" | translate}}
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="quantity">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>
+                {{"admin.table.quantity" | translate}}
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <!-- <div class="input-quantity">
+                  <mat-form-field class="search-field" appearance="outline">
+                    <input autocomplete="off"
+                      matInput
+                      type="number"
+                      readonly
+                      value="{{ element.quantity }}"
+                      max="10"
+                    />
+                  </mat-form-field>
+                </div> -->
+                {{ element.quantity }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="price">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>
+                {{"admin.table.price" | translate}}
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef style="width: 200px;">
+                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp; {{"admin.table.action" | translate}}
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <button
+                  mat-icon-button
+                  class="view-btn"
+                  matTooltip="{{'tooltip.view' | translate}}"
+                  (click)="
+                    expandedElement =
+                      expandedElement === element ? null : element
+                  "
+                >
+                  <mat-icon>remove_red_eye</mat-icon>
+                </button>
+                &nbsp;&nbsp;
+                <button
+                  mat-icon-button
+                  class="edit-btn"
+                  matTooltip="{{'tooltip.edit' | translate}}"
+                  (click)="updateProduct(element)"
+                >
+                  <mat-icon>edit</mat-icon>
+                </button>
+                &nbsp;&nbsp;
+                <button
+                  mat-icon-button
+                  class="delete-btn"
+                  matTooltip="{{'tooltip.delete' | translate}}"
+                  (click)="removeProduct(element)"
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+            <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+            <ng-container matColumnDef="expandedDetail">
+              <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+                <div
+                  class="example-element-detail"
+                  [@detailExpand]="
+                    element == expandedElement ? 'expanded' : 'collapsed'
+                  "
+                >
+                  <div class="example-element-diagram">
+                    <img class="large-image" src="{{ element.image[0].imageurl }}" />
+                    <!-- <div class="example-element-symbol">{{ element.name }}</div>
+                    <div class="example-element-name">{{ element.price }}</div>
+                    <div class="example-element-weight">
+                      {{ element.quantity }}
+                    </div> -->
+                  </div>
+                  <div class="example-element-description">
+                    {{ element.description }}
+                    <span class="example-element-description-attribution">
+                      -- Wikipedia
+                    </span>
+                  </div>
+                </div>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr
+              mat-row
+              *matRowDef="let element; columns: columnsToDisplay"
+              class="example-element-row"
+              [class.example-expanded-row]="expandedElement === element"
+            ></tr>
+            <tr
+              mat-row
+              *matRowDef="let row; columns: ['expandedDetail']"
+              class="example-detail-row"
+            ></tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+<app-footer [position]="'sticky'"></app-footer>

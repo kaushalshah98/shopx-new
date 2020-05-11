@@ -1,0 +1,12 @@
+<div id="divDialogContent" mat-dialog-content>
+  <h2>{{"confirm.confirm" | translate}}</h2>
+  <p id="pMessage">{{ data.message | translate }}</p>
+</div>
+<div class="whiteDialogAction" mat-dialog-actions>
+  <button class="btnYes" mat-flat-button mat-dialog-close="yes" cdkFocusInitial>
+    {{"confirm.yes" | translate}}
+  </button>
+  <button class="btnNo" mat-flat-button mat-dialog-close="no">
+    {{"confirm.no" | translate}}
+  </button>
+</div>

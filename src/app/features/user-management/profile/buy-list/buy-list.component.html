@@ -1,0 +1,109 @@
+<app-spinner [loading]="dataLoading" class="centree-spinner"></app-spinner>
+
+<div
+  [ngClass]="{'big-input-container':true,'dark-big-input-container' :( property.nightmode | async)}"
+  [ngStyle]="{'padding-top': ((paddingtop | async) >0 ?((paddingtop | async)-35) :25)  +'px'}"
+>
+  <div class="big-delete-input">
+    <app-big-input
+      [placeholder]="'user.form_heading.i_am_going_to_buy_a'"
+      (keyup)="onInputChanged($event.target.value)"
+      (keyup.enter)="!isDisabled && onAddToBuyList()"
+      [value]="inputvalue"
+      (keyup.escape)="onClear()"
+      [height]="60"
+      [radius]="5"
+    >
+      <div class="btn">
+        <button
+          class="add-btn"
+          mat-raised-button
+          matTooltip="{{'tooltip.add_item' | translate}}"
+          matTooltipPosition="above"
+          (click)="onAddToBuyList()"
+          [disabled]="isDisabled"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+        &nbsp;&nbsp;
+        <button
+          mat-raised-button
+          class="remove-btn"
+          matTooltip="{{'tooltip.delete_item' | translate}}"
+          matTooltipPosition="above"
+          (click)="onRemoveItem()"
+          [disabled]="isSelected"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </app-big-input>
+  </div>
+  <ng-container *ngIf="list">
+    <div class="buy-card-container">
+      <div class="filter-btn">
+        <button
+          mat-icon-button
+          matTooltip="{{'tooltip.filter' | translate}}"
+          matTooltipPosition="left"
+          [matMenuTriggerFor]="todosFilter"
+        >
+          <mat-icon>filter_list</mat-icon>
+        </button>
+        &nbsp;
+        <mat-chip-list>
+          <mat-chip [disabled]="true">
+            {{"user.form_heading.displaying_item" | translate :{'totalitems':buylist.length} }}
+          </mat-chip>
+        </mat-chip-list>
+        <mat-menu #todosFilter="matMenu" xPosition="before">
+          <button
+            [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+            mat-menu-item
+            (click)="onFilter('ALL')"
+          >
+            <mat-icon> view_list </mat-icon>
+            <span>{{'user.filter.all' | translate}} </span>
+          </button>
+          <button
+            [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+            mat-menu-item
+            (click)="onFilter('DONE')"
+          >
+            <mat-icon> check </mat-icon>
+            <span>{{'user.filter.done' | translate}}</span>
+          </button>
+          <button
+            [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+            mat-menu-item
+            (click)="onFilter('ACTIVE')"
+          >
+            <mat-icon> notifications_active </mat-icon>
+            <span>{{'user.filter.active' | translate}}</span>
+          </button>
+        </mat-menu>
+      </div>
+      <br />
+      <div class="roww" [ngClass]="{dimmed: dimmed}">
+        <div class="two-part" *ngFor="let item of buylist">
+          <mat-card class="todo">
+            <mat-checkbox
+              class="todo-done"
+              color="{{( property.nightmode | async)? '':'primary'}}"
+              [checked]="item.done"
+              (change)="onToggleTodo(item)"
+            ></mat-checkbox>
+            <span
+              class="todo-label"
+              [ngClass]="{ 'todo-label-done': item.done }"
+              (click)="onToggleTodo(item)"
+            >
+              &nbsp;{{item.name}}&nbsp;
+            </span>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+<app-footer [position]="'sticky'"></app-footer>

@@ -1,0 +1,462 @@
+/* mat table
+--------------------------*/
+// .mat-table {
+//   width: 100%;
+//   box-shadow: none;
+//   //border: 1px solid map-get($map: $global-color, $key: neutral-2);
+//   //border-collapse: collapse;
+
+//   tr {
+//     &.mat-header-row {
+//       height: 40px;
+
+//       .mat-header-cell {
+//         padding: 8px 10px;
+//         font-size: 14px;
+//         font-weight: 500;
+//         color: var(map-get($map: $global-theme-variable, $key: global_neutral_darkest));
+//         border-bottom: 2px solid map-get($map: $global-color, $key: neutral-lightest);
+//       }
+
+//     }
+
+//     &.mat-row {
+//       height: 40px;
+
+//       .mat-cell {
+//         padding: 8px 10px;
+//         border-bottom: 1px dotted map-get($map: $global-color, $key: neutral-lightest);
+
+//         .mat-icon-button {
+//           height: 24px;
+//           width: 24px;
+//           line-height: 24px;
+//           margin-right: 15px;
+
+//           &:last-child {
+//             margin-right: 0;
+//           }
+
+//           .mat-icon {
+//             font-size: 20px;
+
+//           }
+//         }
+//       }
+//     }
+//   }
+
+// }
+
+/* Progress bar
+--------------------------*/
+.mat-progress-bar {
+  .mat-progress-bar-fill::after {
+    background-color: map-get($map: $global-color, $key: blueberry);
+  }
+}
+
+/* box shadow
+--------------------------*/
+@mixin angular-shadow-1 {
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.06), 1px 1px 6px rgba(148, 148, 148, 0.09);
+}
+
+/* mat card
+--------------------------*/
+.mat-card {
+  &:not([class*='mat-elevation-z']) {
+    @include angular-shadow-1;
+    border-radius: map-get($map: $border-radius, $key: r0);
+  }
+
+  .mat-card-header {
+    margin: 4px 0 10px;
+
+    .mat-card-header-text {
+      margin: 0;
+
+      .mat-card-title {
+        font-weight: 300;
+        color: map-get($map: $global-color, $key: neutral);
+        font-size: 20px;
+      }
+    }
+
+    .mat-card-header-action {
+      margin-left: auto;
+      position: relative;
+      top: -8px;
+    }
+  }
+
+  .mat-nav-list {
+    margin: 0 -16px;
+
+    &:first-child {
+      padding-top: 0;
+    }
+  }
+
+  .mat-card-actions {
+    &:last-child {
+      position: relative;
+
+      &::before {
+        content: '';
+        display: block;
+        left: -8px;
+        right: -8px;
+        height: 1px;
+        background-color: map-get($map: $global-color, $key: neutral-1);
+        position: absolute;
+        top: 1px;
+      }
+    }
+  }
+}
+
+/* mat accordion
+--------------------------*/
+.mat-accordion {
+  .mat-expansion-panel {
+    margin-bottom: 10px;
+    border-radius: map-get($map: $border-radius, $key: r0) !important;
+
+    &.mat-expansion-panel-spacing {
+      margin-bottom: 15px !important;
+    }
+
+    &:not([class*='mat-elevation-z']) {
+      @include angular-shadow-1;
+    }
+
+    .mat-expansion-panel-header {
+      padding: 0 24px 0 15px;
+
+      &.c-mat-panel-has-icon {
+        .mat-content {
+          position: relative;
+          overflow: visible;
+          display: block;
+
+          i {
+            border-radius: map-get($map: $border-radius, $key: r0);
+            height: 32px;
+            width: 32px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin-top: -16px;
+            display: block;
+            padding: 2px;
+          }
+
+          .mat-expansion-panel-header-title {
+            padding-left: 42px;
+          }
+        }
+      }
+
+      .mat-expansion-indicator {
+        &::after {
+          margin-top: -7px;
+        }
+      }
+
+      .mat-expansion-panel-header-title {
+        font-weight: 300;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .mat-expansion-panel-content {
+    .mat-expansion-panel-body {
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-top: 15px;
+
+      .c-mat-panel-description {
+        color: map-get($map: $global-color, $key: neutral-lighter);
+        font-weight: 300;
+        font-size: map-get($map: $font-size, $key: sm);
+        margin-bottom: 20px;
+        margin-top: -19px;
+      }
+    }
+  }
+
+  /* Hierarcy in accordion
+--------------------------*/
+
+  .l-hierarcy-accordion {
+    padding: 0;
+    margin: 0;
+
+    > li {
+      list-style: none;
+
+      > ul {
+        padding: 0;
+        margin: 0 0 0 30px;
+
+        li {
+          list-style: none;
+        }
+      }
+
+      &.l-has-child {
+        position: relative;
+
+        &::before {
+          content: '';
+          z-index: -1;
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 16px;
+          height: 100%;
+          width: 2px;
+          background-image: linear-gradient(#919191 65%, rgba(255, 0, 0, 0) 20%);
+          background-position: top;
+          background-size: 2px 12px;
+          background-repeat: repeat-y;
+        }
+
+        > .l-level-2 {
+          > li {
+            position: relative;
+            &::before {
+              content: '';
+              z-index: -1;
+              display: block;
+              position: absolute;
+              top: 10px;
+              left: -15px;
+              height: 2px;
+              width: 15px;
+              background-image: linear-gradient(to right, #919191 65%, rgba(255, 0, 0, 0) 20%);
+              background-position: top;
+              background-size: 12px 2px;
+              background-repeat: repeat-x;
+            }
+            &:last-child {
+              &::after {
+                content: '';
+                z-index: -1;
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: -14px;
+                height: calc(100% - 12px);
+                width: 2px;
+                background-color: #fafafa;
+                background-position: top;
+                background-size: 2px 12px;
+                background-repeat: repeat-y;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Form
+--------------------------*/
+.mat-block {
+  width: 100%;
+}
+
+.mat-form-field {
+  .mat-form-field-wrapper {
+    .mat-form-field-flex {
+      .mat-form-field-infix {
+      }
+    }
+  }
+
+  .mat-form-field-prefix {
+    .mat-icon {
+      margin-right: 10px;
+    }
+  }
+
+  &.c-mat-form-color {
+    position: relative;
+
+    .mat-form-field-flex,
+    .mat-form-field-underline {
+      margin-left: 50px;
+      width: calc(100% - 50px);
+    }
+
+    .mat-form-field-infix {
+      i {
+        // color ball
+        display: block;
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        background-color: map-get($map: $global-color, $key: neutral-1);
+        border-radius: map-get($map: $border-radius, $key: cir);
+        bottom: 0;
+        left: -50px;
+      }
+    }
+  }
+}
+
+.mat-form-field-appearance-legacy {
+  .mat-form-field-label,
+  .mat-hint {
+    color: map-get($map: $global-color, $key: neutral-lighter);
+  }
+}
+
+.search-filter {
+  @include search-filter;
+
+  .mat-form-field-flex {
+    .mat-form-field-infix {
+      padding: 5px 0 5px 0;
+    }
+  }
+}
+
+//radio
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+
+/* Switch
+--------------------------*/
+.mat-slide-toggle {
+  .mat-slide-toggle-label {
+    .mat-slide-toggle-content {
+      color: var(map-get($map: $global-theme-variable, $key: global_neutral_darkest));
+    }
+  }
+  &.mat-checked {
+    .mat-slide-toggle-thumb {
+      background-color: var(map-get($map: $global-theme-variable, $key: global_color_secondary));
+    }
+  }
+}
+
+/* Buttons
+--------------------------*/
+.mat-button,
+.mat-flat-button,
+.mat-icon-button,
+.mat-stroked-button {
+  border-radius: map-get($map: $border-radius, $key: r2) !important;
+}
+
+/* global portal form element
+--------------------------*/
+.c-global-mat-form {
+  padding: 14px 10px 14px 18px;
+  margin-bottom: 15px;
+  border-radius: map-get($map: $border-radius, $key: r5);
+  min-height: 52px;
+
+  .c-global-mat-icon {
+    display: block;
+    height: 28px;
+    width: 28px;
+    float: left;
+    margin-right: 10px;
+  }
+
+  .mat-slide-toggle {
+    width: 100%;
+
+    .mat-slide-toggle-label {
+      .mat-slide-toggle-content {
+        order: 1;
+      }
+
+      .mat-slide-toggle-bar {
+        order: 2;
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+/* List
+--------------------------*/
+.mat-nav-list {
+  .mat-divider {
+    border-top-color: map-get($map: $global-color, $key: neutral-0);
+  }
+}
+
+.c-activity-list.mat-list-base {
+  .mat-list-item {
+    height: auto;
+
+    .mat-list-item-content {
+      padding: 14px 16px;
+      align-items: start;
+    }
+  }
+
+  .c-activity-profile-image {
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    object-fit: cover;
+    background-color: map-get($map: $global-color, $key: neutral-0);
+    background-size: cover;
+    margin-right: 10px;
+    position: relative;
+  }
+
+  .c-activity-description {
+    font-size: 14px;
+
+    .c-activity-profile-name {
+      font-weight: 500;
+    }
+
+    .c-activity-profile-text {
+      font-weight: 300;
+    }
+
+    .c-activity-post-time {
+      display: block;
+      font-size: 12px;
+      color: map-get($map: $global-color, $key: neutral);
+    }
+  }
+}
+
+/* mat-tree
+--------------------------*/
+mat-tree.c-mat-tree-border {
+  background-color: map-get($map: $global-color, $key: white);
+  border: 1px solid map-get($map: $global-color, $key: neutral-2);
+  border-radius: map-get($map: $border-radius, $key: r3);
+}
+
+/* Tab
+--------------------------*/
+.mat-tab-body-content .mat-divider-horizontal {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+/* Loading bar
+--------------------------*/
+
+div[_ngcontent-ttp-c1] {
+  .bar[_ngcontent-ttp-c1] {
+    background-color: var(map-get($map: $global-theme-variable, $key: global_color_primary));
+  }
+}

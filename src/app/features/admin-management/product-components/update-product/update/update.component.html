@@ -1,0 +1,211 @@
+<app-jumbotron [Heading]="'admin.main_heading.update_product'"></app-jumbotron>
+<app-spinner [loading]="dataLoading" class="centree-spinner"></app-spinner>
+<div [ngClass]="{'billing-container':true,'dark-billing-container': ( property.nightmode | async)}">
+  <mat-card class="edit-profile-card">
+    <mat-card-content>
+      <ng-container *ngIf="productdata">
+        <form
+          [ngClass]="{'dark-form': ( property.nightmode | async)}"
+          [formGroup]="updateproductform"
+        >
+          <table class="table-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field appearance="legacy">
+                  <mat-label>{{"admin.productform.category" | translate}}</mat-label>
+                  <mat-select
+                    required
+                    formControlName="selectedcategory"
+                    [(ngModel)]="productdata.category"
+                    disabled
+                  >
+                    <mat-option
+                      [ngClass]="{'dark-option': ( property.nightmode | async)}"
+                      *ngFor="let category of category"
+                      [value]="category.name"
+                    >
+                      {{ category.name }}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="hasError('selectedcategory','required')">
+                    {{"admin.productform_validations.you_must_make_a_selection" |translate}}
+                  </mat-error>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field appearance="legacy" class="example-full-width">
+                  <mat-label>{{"admin.productform.innercategory" | translate}}</mat-label>
+                  <mat-select
+                    required
+                    disabled
+                    [(ngModel)]="productdata.innercategory"
+                    formControlName="selectedinnerCategory"
+                  >
+                    <mat-option
+                      [ngClass]="{'dark-option': ( property.nightmode | async)}"
+                      *ngFor="let innerCategory of InnerCategory"
+                      [value]="innerCategory.name"
+                    >
+                      {{ innerCategory.name }}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="hasError('selectedinnerCategory','required')">
+                    {{"admin.productform_validations.you_must_make_a_selection" |translate}}
+                  </mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+
+          <table class="table-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field appearance="legacy">
+                  <mat-label>{{"admin.productform.product_name" | translate}}</mat-label>
+                  <input
+                    autocomplete="off"
+                    [(ngModel)]="productdata.name"
+                    required
+                    matInput
+                    formControlName="productNameFormControl"
+                  />
+                  <mat-error *ngIf="hasError('productNameFormControl','required')">
+                    {{"admin.productform.product_name" | translate}}
+                    {{"user.form_validations.is_required" | translate}}
+                  </mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+
+          <table class="table-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field appearance="legacy">
+                  <mat-label>{{"admin.productform.quantity" | translate}}</mat-label>
+                  <input
+                    autocomplete="off"
+                    [(ngModel)]="productdata.quantity"
+                    required
+                    matInput
+                    formControlName="quantityFormControl"
+                  />
+                  <mat-error *ngIf="hasError('quantityFormControl','min')">
+                    {{"admin.productform_validations.enter_positive_value" | translate}}
+                  </mat-error>
+                  <mat-error *ngIf="hasError('quantityFormControl','pattern')">
+                    {{"admin.productform_validations.enter_valid_value" | translate}}
+                  </mat-error>
+                  <mat-error *ngIf="hasError('quantityFormControl','required')">
+                    {{"admin.productform.quantity" | translate}}
+                    {{"user.form_validations.is_required" | translate}}
+                  </mat-error>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field appearance="legacy">
+                  <mat-label>{{"admin.productform.price" | translate}}</mat-label>
+                  <input
+                    autocomplete="off"
+                    [(ngModel)]="productdata.price"
+                    required
+                    matInput
+                    formControlName="priceFormControl"
+                  />
+                  <mat-error *ngIf="hasError('priceFormControl','min')">
+                    {{"admin.productform_validations.enter_positive_value" | translate}}
+                  </mat-error>
+                  <mat-error *ngIf="hasError('priceFormControl','pattern')">
+                    {{"admin.productform_validations.enter_valid_value" | translate}}
+                  </mat-error>
+                  <mat-error *ngIf="hasError('priceFormControl','required')">
+                    {{"admin.productform.price" | translate}} {{"user.form_validations.is_required"
+                    | translate}}
+                  </mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+
+          <table class="table-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field appearance="legacy">
+                  <mat-label>{{"admin.productform.product_description" | translate}}</mat-label>
+                  <textarea
+                    matInput
+                    required
+                    [(ngModel)]="productdata.description"
+                    formControlName="productDescriptionFormControl"
+                  ></textarea>
+                  <mat-error *ngIf="hasError('productDescriptionFormControl','minlength')">
+                    {{"admin.productform.product_description" | translate}}
+                    {{"admin.productform_validations.must_have_minimum_10_characters" | translate}}
+                  </mat-error>
+                  <mat-error *ngIf="hasError('productDescriptionFormControl','required')">
+                    {{"admin.productform.product_description" | translate}}
+                    {{"admin.productform_validations.is_required" | translate}}
+                  </mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+
+          <table class="table-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field appearance="legacy">
+                  <mat-label>{{"admin.productform.image_url" | translate}}</mat-label>
+                  <input
+                    autocomplete="off"
+                    required
+                    [(ngModel)]="productdata.image[0].imageurl"
+                    matInput
+                    formControlName="productImage1FormControl"
+                  />
+                  <mat-error *ngIf="hasError('productImage1FormControl','required')">
+                    {{"admin.productform.image_url" | translate}}
+                    {{"user.form_validations.is_required" | translate}}
+                  </mat-error>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field appearance="legacy">
+                  <mat-label>{{"admin.productform.image_url_2" | translate}}</mat-label>
+                  <input
+                    autocomplete="off"
+                    [(ngModel)]="productdata.image[1].imageurl"
+                    matInput
+                    formControlName="productImage2FormControl"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field appearance="legacy">
+                  <mat-label>{{"admin.productform.image_url_3" | translate}}</mat-label>
+                  <input
+                    [(ngModel)]="productdata.image[2].imageurl"
+                    autocomplete="off"
+                    matInput
+                    formControlName="productImage3FormControl"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+</div>
+<mat-toolbar
+  [ngClass]="{'bottom-action-bar': true,'dark-bottom-action-bar' :( property.nightmode | async)}"
+>
+  <button class="pink-btn" id="btnSave" mat-flat-button (click)="UpdateProduct()">
+    {{"admin.productform.save" | translate}}
+  </button>
+  &nbsp;&nbsp;
+  <button class="red-btn" id="btnCancel" mat-flat-button (click)="cancel()">
+    {{"admin.productform.cancel" | translate}}
+  </button>
+</mat-toolbar>

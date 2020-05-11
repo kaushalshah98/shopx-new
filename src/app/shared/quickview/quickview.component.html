@@ -1,0 +1,58 @@
+<div [ngClass]="{'quick-view':true, 'dark-quick-view' :( property.nightmode | async)}">
+  <mat-card class="quick-view-card">
+    <div fxLayout="row" fxLayoutAlign="start">
+      <div fxFlex="50%">
+        <div class="preview-pic tab-content">
+          <div class="tab-pane active" id="pic-1">
+            <img [src]="myThumbnail1" />
+          </div>
+          <div class="tab-pane" id="pic-2">
+            <img [src]="myThumbnail2" />
+          </div>
+          <div class="tab-pane" id="pic-3">
+            <img [src]="myThumbnail3" />
+          </div>
+        </div>
+        <ul class="preview-thumbnail nav nav-tabs">
+          <li class="active">
+            <a data-target="#pic-1" data-toggle="tab"><img src="{{ myThumbnail1 }}"/></a>
+          </li>
+          <li>
+            <a data-target="#pic-2" data-toggle="tab"><img src="{{ myThumbnail2 }}"/></a>
+          </li>
+          <li>
+            <a data-target="#pic-3" data-toggle="tab"><img src="{{ myThumbnail3 }}"/></a>
+          </li>
+        </ul>
+      </div>
+      <div fxFlex="50%" class="side-description">
+        <h3 class="product-title">{{ data.name }}</h3>
+        <p class="product-description">
+          {{data.description}}
+        </p>
+        <br />
+        <h2 class="price">
+          {{'shared.description_viewer.cuurent_price' | translate }} :
+          <span>₹{{ data.price }}</span>
+        </h2>
+        <div class="action">
+          <button class="add-to-cart-btn" mat-raised-button (click)="addToCart(data)">
+            {{'user.product.add_to_cart' | translate }}
+          </button>
+          &nbsp;
+          <button class="fav-btn" mat-raised-button (click)="addToWishlist(data)">
+            <mat-icon>favorite</mat-icon>
+          </button>
+          &nbsp;
+          <button class="detail-btn" mat-raised-button (click)="detailview()">
+            {{'user.product.detail_view' | translate }}
+          </button>
+          &nbsp;
+          <button class="back-btn" mat-raised-button (click)="onNoClick()">
+            {{'user.product.back' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

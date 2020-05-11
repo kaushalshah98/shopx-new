@@ -1,0 +1,29 @@
+<div [ngClass]="{'space-medium':true, 'dark-space-medium' :( property.nightmode | async)}">
+  <div class="containerr">
+    <div class="roww">
+      <div class="two-part" *ngFor="let item of items_category1">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text" [routerLink]="item.url"> {{ item.name }}</a>
+          </div>
+          <div class="showcase-img">
+            <a> <img class="small-image" src="{{ item.image }}" alt=""/></a>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <br />
+    <div class="roww">
+      <div class="four-part" *ngFor="let item of items_category2">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text" [routerLink]="item.url"> {{ item.name }}</a>
+          </div>
+          <div class="showcase-img">
+            <a><img class="small-image" src="{{ item.image }}" alt=""/></a>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

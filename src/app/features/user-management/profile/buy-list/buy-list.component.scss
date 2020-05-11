@@ -1,0 +1,123 @@
+@import '../../../../../assets/css/var.scss';
+.big-input-container {
+  min-height: 491px;
+  .big-delete-input {
+    padding: 20px 300px 0px 300px;
+    .btn {
+      margin-right: 10px;
+      .add-btn {
+        color: $black;
+        background-color: $yellow;
+      }
+      .remove-btn {
+        color: $white;
+        background-color: $red;
+      }
+      .mat-raised-button[disabled]:not([class*='mat-elevation-z']) {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 0 rgba(0, 0, 0, 0.14),
+          0 0 0 0 rgba(0, 0, 0, 0.12) !important;
+        background-color: rgba(0, 0, 0, 0.12) !important;
+        color: rgba(0, 0, 0, 0.26) !important;
+        cursor: default !important;
+      }
+    }
+  }
+  .buy-card-container {
+    padding: 7px 150px 70px 150px;
+    .filter-btn {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      .mat-icon-button {
+        border-radius: 50% !important;
+      }
+    }
+    .roww {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -15px;
+      margin-left: -15px;
+      .mat-card {
+        box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.3), 0 1px 1px 0 rgba(0, 0, 0, 0.24),
+          0 1px 3px 0 rgba(0, 0, 0, 0.22);
+        margin-bottom: 10px;
+        background-color: whitesmoke;
+      }
+      .todo {
+        display: flex;
+        margin-bottom: 10px;
+
+        .todo-done {
+          margin: 0 20px 0 0;
+        }
+
+        .todo-label {
+          position: relative;
+          top: -1px;
+          cursor: pointer;
+
+          &.todo-label-done {
+            text-decoration: line-through;
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+}
+.dark-big-input-container {
+  .mat-chip.mat-standard-chip {
+    background-color: $lightergray !important;
+    color: $white;
+  }
+  .big-delete-input {
+    .btn {
+      .add-btn {
+        background-color: $green !important;
+      }
+      .remove-btn {
+        background-color: $raspberry !important;
+      }
+    }
+  }
+  .buy-card-container {
+    .roww {
+      .mat-card {
+        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+          0 3px 14px 2px rgba(0, 0, 0, 0.12) !important;
+        margin-bottom: 10px;
+        color: $white;
+        background-color: $darkgray !important;
+      }
+      .todo {
+        .todo-label {
+          &.todo-label-done {
+            color: $black;
+            opacity: 0.5;
+          }
+        }
+        .mat-checkbox .mat-ripple-element {
+          background-color: $white !important;
+        }
+        .mat-checkbox-frame {
+          border-color: rgba(255, 255, 255, 0.7) !important;
+        }
+        .mat-checkbox-mixedmark {
+          background-color: #303030 !important;
+        }
+        .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+        .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+          background: $green !important;
+          color: $black !important;
+        }
+        .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element,
+        .mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+          background: $green !important;
+        }
+        .mat-checkbox-checkmark-path {
+          stroke: $black !important;
+        }
+      }
+    }
+  }
+}

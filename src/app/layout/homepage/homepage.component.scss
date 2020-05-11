@@ -1,0 +1,10 @@
+@import '../../../assets/css/var.scss';
+
+.dark-c-site-left-panel {
+  .mat-drawer-inner-container {
+    background-color: $darkergray !important;
+  }
+}
+.dark-c-site-middle-content {
+  background: $darkest;
+}

@@ -1,0 +1,45 @@
+<app-spinner
+  [loading]="dataLoading"
+  *ngIf="dimmed"
+  style="position: absolute;top: 30%;left: 50%;z-index: 999;"
+></app-spinner>
+<div [ngClass]="{'review-container':true, 'dark-review-container' :( property.nightmode | async)}">
+  <mat-card class="box-elevation-z8">
+    <mat-list>
+      <div mat-subheader>
+        {{totalreviewcount}} {{'shared.reviews_viewer.user_review' | translate}}
+      </div>
+      <mat-form-field appearance="outline">
+        <mat-label> {{'shared.reviews_viewer.write_a_review' | translate}}</mat-label>
+        <!-- <app-spinner [loading]="dataLoading"></app-spinner> -->
+        <input
+          matInput
+          [formControl]="reviewtext"
+          (keyup.enter)="addreview()"
+          (keyup.escape)="reset()"
+        />
+        <button mat-icon-button matSuffix (click)="addreview()">
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-form-field>
+      <div [ngClass]="{dimmed: dimmed}">
+        <ng-container *ngFor="let review of reviews">
+          <mat-list-item>
+            <mat-icon mat-list-icon>star</mat-icon>
+            <div class="username" mat-line>{{review.name}}</div>
+            <div mat-line>{{review.review}}</div>
+            <button
+              *ngIf="isUserReview(review.userid)"
+              mat-icon-button
+              matSuffix
+              (click)="deletereview(review)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </ng-container>
+      </div>
+    </mat-list>
+  </mat-card>
+</div>

@@ -1,0 +1,26 @@
+<app-navbar (IsFullscreen)="fullscreenstatus($event)" [isHidden]="true"></app-navbar>
+<app-jumbotron [Heading]="'user.main_heading.checkout_form'"></app-jumbotron>
+<mat-horizontal-stepper
+  [ngClass]="{'dark-mat-stepper': ( property.nightmode | async)}"
+  [linear]="isLinear"
+  #stepper
+>
+  <mat-step [completed]="step1" [editable]="false">
+    <ng-template matStepLabel>
+      {{"user.form_heading.fill_out_your_billing_address" | translate}}
+    </ng-template>
+    <app-billing [paddingtop]="paddingtop" (step1status)="setstep1status($event)"></app-billing>
+  </mat-step>
+  <mat-step [completed]="step2" [editable]="false">
+    <ng-template matStepLabel>
+      {{"user.form_heading.fill_out_your_address" | translate}}
+    </ng-template>
+    <app-payment [paddingtop]="paddingtop" (step2status)="setstep2status($event)"></app-payment>
+  </mat-step>
+  <mat-step [completed]="false" [editable]="false">
+    <ng-template matStepLabel>
+      {{"user.form_heading.sucess" | translate}}
+    </ng-template>
+    <app-recipt></app-recipt>
+  </mat-step>
+</mat-horizontal-stepper>

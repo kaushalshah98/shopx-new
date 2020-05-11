@@ -1,0 +1,28 @@
+<div
+  [ngClass]="{'c-site-left-panel-inner': true , 'dark-c-site-left-panel-inner' :( property.nightmode | async)}"
+  id="divLeftPanelInner"
+>
+  <div class="c-site-left-panel-profile" id="divLeftPanelProfile">
+    <div class="c-site-left-panel-profile-photo" id="divPhoto">
+      <img
+        id="imgProfile"
+        [src]="userdata!=undefined? userdata.photoUrl : '../../../../assets/images/icon-login-profile.svg'"
+      />
+    </div>
+    <div class="c-site-left-panel-profile-text" id="divProfileTxt">
+      <span id="spn1"></span>
+      <a id="aHrefTag" href="#"></a>
+    </div>
+  </div>
+</div>
+<div>
+  <mat-nav-list>
+    <mat-accordion>
+      <app-menuitems
+        *ngFor="let items of menuItems index as i"
+        [depth]="i+1"
+        [item]="items"
+      ></app-menuitems>
+    </mat-accordion>
+  </mat-nav-list>
+</div>

@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900');
+
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: map-get($global-color, neutral-darkest);
+
+  a {
+    color:map-get($global-color, blueberry);
+  }
+}
+
+h1 {}
+
+h2 {}
+
+h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: map-get($map: $global-color, $key: neutral-lighter);
+  margin: 0 0 20px;
+}
+
+.u-text-left {
+  text-align: left;
+}
+
+a {
+  &:hover {
+    color: map-get($map: $global-color, $key: blueberry);
+  }
+}
+
+.u-text-right {
+  text-align: right;
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-text-justify {
+  text-align: justify;
+}
+
+.u-text-nowrap {
+  white-space: nowrap;
+}
+
+.u-text-lowercase {
+  text-transform: lowercase;
+}
+
+.u-text-uppercase {
+  text-transform: uppercase;
+}
+
+.u-text-capitalize {
+  text-transform: capitalize;
+}
+
+// font-size
+$u-font-size: u-font-size !default;
+
+@for $i from 1 through 20 {
+  .#{$u-font-size}-#{$i*2 + 10} {
+    font-size: 10px + $i*2;
+  }
+
+}
+
+// Font Weight
+.u-font-light {
+  font-weight: 300;
+}
+
+.u-font-regular {
+  font-weight: 400;
+}
+
+.u-font-medium {
+  font-weight: 500;
+}
+
+.u-font-bold {
+  font-weight: 700;
+}
+
+.u-font-black {
+  font-weight: 900;
+}
+
+// Font color
+
+.u-font-color-primary {
+  color: var(map-get($map: $global-theme-variable, $key: global_color_primary));
+}
+
+.u-font-color-blueberry {
+  color: map-get($map: $global-color, $key: blueberry);
+}
+
+.u-font-color-mango {
+  color: map-get($map: $global-color, $key: mango);
+}
+
+.u-font-color-raspberry {
+  color: var(map-get($map: $global-theme-variable, $key: global_color_raspberry));
+}
+
+.u-font-color-neutral-darkest {
+  color: var(map-get($map: $global-theme-variable, $key: global_neutral_darkest));
+}
+
+.u-font-color-neutral {
+  color: map-get($map: $global-color, $key: neutral);
+}
+
+.u-font-color-neutral-light {
+  color: map-get($map: $global-color, $key: neutral-light);
+}
+
+.u-font-color-neutral-lighter {
+  color: map-get($map: $global-color, $key: neutral-lighter);
+}
+
+.u-font-color-neutral-lightest {
+  color: map-get($map: $global-color, $key: neutral-lightest);
+}
+
+.u-font-color-white {
+  color: map-get($map: $global-color, $key: white);
+}

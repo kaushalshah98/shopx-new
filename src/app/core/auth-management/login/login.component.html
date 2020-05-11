@@ -1,0 +1,65 @@
+<app-loading-bar></app-loading-bar>
+<div [ngClass]="{'input-template':true, 'dark-input-template' :( property.nightmode | async)}">
+  <mat-card class="input-card box-elevation-z8">
+    <mat-card-header>
+      <mat-card-title>{{"user.form.sign_in" | translate}}</mat-card-title>
+    </mat-card-header>
+    <form
+      [ngClass]="{'input-form':true,'dark-form': ( property.nightmode | async)}"
+      [formGroup]="loginform"
+    >
+      <mat-form-field class="input-full-width">
+        <mat-label>{{"user.form.username" | translate}}</mat-label>
+        <input autocomplete="off" matInput formControlName="usernameFormControl" />
+        <mat-error *ngIf="hasError('usernameFormControl','minlength')">
+          {{"user.form.username" | translate}}
+          {{"user.form_validations.must_be_at_least_3_characters_long" | translate}}.
+        </mat-error>
+        <mat-error *ngIf="hasError('usernameFormControl','required')">
+          {{"user.form.username" | translate}} {{"user.form_validations.is_required" | translate}}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="input-full-width">
+        <mat-label>{{"user.form.password" | translate}}</mat-label>
+        <input
+          autocomplete="off"
+          matInput
+          formControlName="passwordFormControl"
+          (keyup.enter)="login()"
+        />
+        <mat-error *ngIf="hasError('passwordFormControl','minlength')">
+          {{"user.form.password" | translate}}
+          {{"user.form_validations.must_be_at_least_4_characters_long" | translate}}.
+        </mat-error>
+        <mat-error *ngIf="hasError('passwordFormControl','required')">
+          {{"user.form.password" | translate}} {{"user.form_validations.is_required" | translate}}
+        </mat-error>
+      </mat-form-field>
+    </form>
+    <mat-card-content> </mat-card-content>
+    <mat-card-actions class="mat-actions" [ngClass]="{dimmed: show}">
+      <button mat-raised-button class="signin-btn" [disabled]="loginform.invalid" (click)="login()">
+        {{"user.form.sign_in" | translate}}
+      </button>
+      <button mat-raised-button class="google-btn" (click)="loginWithGoogle()">
+        {{"user.form.sign_up_with_google" | translate}}
+      </button>
+      <button mat-raised-button class="facebook-btn" (click)="loginWithFacebook()">
+        {{"user.form.sign_up_with_facebook" | translate}}
+      </button>
+    </mat-card-actions>
+    <div class="input-text">
+      <a class="forgot-text" [routerLink]="['/forgot_passoword/&']"> forgot password? </a>
+      <br />
+      {{"user.form.not_a_member" | translate}}
+      <a [routerLink]="['/register/#']">
+        {{"user.form.register" | translate}}
+      </a>
+    </div>
+  </mat-card>
+</div>
+<app-spinner
+  *ngIf="show"
+  style="position: absolute;top: 66%;left: 48%;"
+  [loading]="dataLoading"
+></app-spinner>

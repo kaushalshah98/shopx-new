@@ -1,0 +1,203 @@
+// ------------------------------ Mat Divider -----------------------------------------
+.mat-divider {
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+// ------------------------------ Mat Menu -----------------------------------------
+
+.mat-menu-panel {
+  background: #424242;
+}
+
+.mat-menu-content {
+    .mat-menu-item {
+      background: transparent;
+      color: white;
+      // .mat-icon-no-color {
+      //   color: white;
+      // }
+    }
+    :hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .mat-menu-item .mat-icon-no-color, //aa important che main line
+    .mat-menu-item-submenu-trigger::after {
+      color: white;
+    }
+}
+// ------------------------------ Mat Form Field -----------------------------------------
+
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: rgba(0, 0, 0, 0.87);
+}
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: rgba(0, 0, 0, 0.12);
+}
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.mat-hint {
+  color: rgba(0, 0, 0, 0.6);
+}
+.mat-input-element {
+  caret-color: #9c27b0;
+}
+.mat-form-field.mat-focussed.mat-form-field-ripple {
+  background-color: #9c27b0;
+}
+.mat-form-field-appearance-legacy .mat-form-field-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+// ------------------------------ Mat Card -----------------------------------------
+.mat-card {
+  background: #424242;
+  color: white;
+}
+.mat-card .mat-card-actions:last-child::before {
+  background-color: #f4f4f4;
+}
+// ------------------------------ Mat Slide Toggle -----------------------------------------
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: #69f0ae;
+}
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: rgba(105, 240, 174, 0.54);
+}
+// ------------------------------ Mat Expansion Panels -----------------------------------------
+.mat-expansion-panel {
+  background: #424242;
+  color: white;
+}
+.mat-expansion-panel .mat-expansion-panel-header.cdk-keyboard-focused:not([aria-disabled='true']),
+.mat-expansion-panel .mat-expansion-panel-header.cdk-program-focused:not([aria-disabled='true']),
+.mat-expansion-panel:not(.mat-expanded)
+  .mat-expansion-panel-header:hover:not([aria-disabled='true']) {
+  background: rgba(255, 255, 255, 0.04);
+}
+// ------------------------------ Mat List -----------------------------------------
+.mat-list-base .mat-list-item {
+  color: white;
+}
+// ------------------------------ Mat Stepper -----------------------------------------
+.mat-stepper-horizontal,
+.mat-stepper-vertical {
+  background-color: #424242;
+}
+.mat-stepper-horizontal-line {
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+.mat-step-header .mat-step-icon {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: white;
+}
+.mat-step-header .mat-step-label.mat-step-label-active {
+  color: white;
+}
+.mat-step-header:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+.mat-step-header .mat-step-icon-selected,
+.mat-step-header .mat-step-icon-state-done,
+.mat-step-header .mat-step-icon-state-edit {
+  background-color: #9c27b0;
+  color: white;
+}
+// ------------------------------ Mat Tabs -----------------------------------------
+.mat-tab-nav-bar,
+.mat-tab-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.mat-tab-label,
+.mat-tab-link {
+  color: white;
+}
+// ------------------------------ Mat Bottom Sheet -----------------------------------------
+.mat-bottom-sheet-container {
+  box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14),
+    0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+  background: #424242;
+  color: white;
+}
+// ------------------------------ Mat Dialog -----------------------------------------
+.mat-dialog-container {
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14),
+    0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+  background: #424242;
+  color: white;
+}
+// ------------------------------ Mat Paginator -----------------------------------------
+.mat-paginator,
+.mat-paginator-page-size .mat-select-trigger {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+// ------------------------------- Mat-Buttons -------------------------------------------
+.mat-button.mat-primary[disabled],
+.mat-button.mat-accent[disabled],
+.mat-button.mat-warn[disabled],
+.mat-button[disabled][disabled],
+.mat-icon-button.mat-primary[disabled],
+.mat-icon-button.mat-accent[disabled],
+.mat-icon-button.mat-warn[disabled],
+.mat-icon-button[disabled][disabled],
+.mat-stroked-button.mat-primary[disabled],
+.mat-stroked-button.mat-accent[disabled],
+.mat-stroked-button.mat-warn[disabled],
+.mat-stroked-button[disabled][disabled] {
+  color: rgba(255, 255, 255, 0.3);
+}
+// ------------------------------- Mat-CheckBox -------------------------------------------
+.mat-checkbox .mat-ripple-element {
+  background-color: white;
+}
+.mat-checkbox-frame {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+.mat-checkbox-mixedmark {
+  background-color: #303030;
+}
+.mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element,
+.mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+  background: #69f0ae;
+}
+
+// ------------------------------- Mat-Chips -------------------------------------------
+.mat-chip.mat-standard-chip {
+  background-color: #616161;
+  color: white;
+}
+.mat-chip.mat-standard-chip .mat-chip-remove {
+  color: white;
+  opacity: 0.4;
+}
+// ------------------------------- Mat-Spinner -------------------------------------------
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #9c27b0;
+}
+// ------------------------------- Mat-Progress Bar -------------------------------------------
+.mat-progress-bar-background {
+  fill: #e1bee7;
+}
+.mat-progress-bar-buffer {
+  background-color: #e1bee7;
+}
+.mat-progress-bar-fill::after {
+  background-color: #9c27b0;
+}
+// ------------------------------- Mat-Table -------------------------------------------
+.mat-table {
+  background: #424242;
+}
+mat-row,
+mat-header-row,
+mat-footer-row,
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}

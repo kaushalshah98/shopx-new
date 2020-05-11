@@ -1,0 +1,118 @@
+@import 'variable';
+@import 'u-general';
+@import 'c-angular-component';
+// @import 'primeNG';
+// @import 'module';
+
+* {
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.c-wrapper {
+  padding-top: $site-header-height;
+}
+
+.c-site-header {
+  height: $site-header-height;
+  background: #f7f7f7;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.14), 0 0 5px rgba(0, 0, 0, 0.35);
+}
+
+.c-site-left-panel,
+.c-site-right-panel,
+.c-site-middle-content {
+  // min-height: $screen-height;
+  height: 100%;
+}
+
+.c-site-left-panel,
+.c-site-right-panel {
+  width: $side-panel-width;
+  position: fixed !important;
+  min-height: $screen-height;
+
+  .mat-drawer-inner-container {
+    position: fixed;
+    width: $side-panel-width;
+    height: 100%;
+    @include scrollbar-light;
+  }
+}
+
+.c-site-left-panel {
+  border: 0;
+  box-shadow: 1px 0 0 rgba(0, 0, 0, 0.08), 2px 0 8px rgba(0, 0, 0, 0.12);
+}
+
+.c-site-right-panel.mat-drawer:not(.mat-drawer-side) {
+  border: 0;
+  box-shadow: -1px 0 0 rgba(0, 0, 0, 0.08), -2px 0 8px rgba(0, 0, 0, 0.12);
+}
+
+// bottom action bar
+.c-with-left-panel {
+  .bottom-action-bar {
+    padding-left: $side-panel-width + 15px;
+  }
+}
+
+// ..bottom-action-bar {
+//   z-index: 2;
+//   position: fixed;
+//   bottom: 0;
+//   width: 100%;
+//   justify-content: flex-end;
+//   right: 0;
+//   height: 56px;
+//   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.08), 0 -2px 8px rgba(0, 0, 0, 0.12);
+//   background-color: $darkpurple;
+//   padding: 11px 15px;
+//   button {
+//     margin: 0 2px;
+//   }
+//   .pink-btn {
+//     background-color: $darkpink;
+//   }
+//   .red-btn {
+//     background-color: $red;
+//   }
+// }
+
+// Legends
+
+[class*='u-status-indicator'] {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: map-get($map: $border-radius, $key: cir);
+  border: 2px solid map-get($map: $global-color, $key: neutral-lightest);
+  margin-right: 5px;
+}
+
+.u-status-indicator-enable {
+  border-color: map-get($map: $global-color, $key: greenapple);
+}
+
+.u-status-indicator-disabled {
+  border-color: var(map-get($map: $global-theme-variable, $key: global_color_raspberry));
+}
+
+//TODO: jay
+// input[type='number']::-webkit-inner-spin-button,
+// input[type='number']::-webkit-outer-spin-button {
+//   -webkit-appearance: none;
+//   margin: 0;
+// }

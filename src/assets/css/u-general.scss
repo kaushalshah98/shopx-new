@@ -1,0 +1,48 @@
+@import 'u-font';
+@import 'u-spacing';
+@import 'u-background';
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+::after,
+::before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  vertical-align: middle;
+}
+// go to top
+.c-go-to-top {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: map-get($map: $global-color, $key: white);
+  color: map-get($map: $global-color, $key: nuetral-darkest);
+  cursor: pointer;
+
+  border-radius: 50px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  text-align: center;
+  box-shadow: 0 0 22px #00000063;
+  .mat-icon {
+    line-height: 48px;
+    font-size: 24px;
+    width: 48px;
+    height: 48px;
+  }
+}

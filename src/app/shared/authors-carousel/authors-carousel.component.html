@@ -1,0 +1,51 @@
+<app-navbar [isHidden]="true"></app-navbar>
+<div
+  [ngClass]="{'author-container': true , 'dark-author-container' :( property.nightmode | async)}"
+>
+  <div class="eight-part">
+    <h2>{{'shared.authors.creators' | translate}}</h2>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Carousel indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+      </ol>
+      <!-- Wrapper for carousel items -->
+      <div class="carousel-inner">
+        <div class="item carousel-item active">
+          <div class="img-box">
+            <img
+              src="https://scontent.fstv5-1.fna.fbcdn.net/v/t1.0-9/p960x960/83093205_1221984354658192_4218277249020854272_o.jpg?_nc_cat=101&_nc_sid=85a577&_nc_ohc=qg8cNgtpBbgAX_lQRAH&_nc_ht=scontent.fstv5-1.fna&_nc_tp=6&oh=8e0232de11c2347a3556627154979dd0&oe=5EC75E57"
+              alt=""
+            />
+          </div>
+          <p class="testimonial">
+            {{'shared.authors.kaushal_description' | translate}}
+          </p>
+          <p class="overview">
+            <b>Kaushal Shah</b>, {{'shared.authors.kaushal_profession' | translate}}
+          </p>
+        </div>
+        <ng-container *ngFor="let author of authors">
+          <div class="item carousel-item">
+            <div class="img-box"><img src="{{author.image}}" alt="" /></div>
+            <p class="testimonial">
+              {{author.description | translate}}
+            </p>
+            <p class="overview"><b>{{author.name}}</b>, {{author.profession |translate}}</p>
+          </div>
+        </ng-container>
+      </div>
+      <!-- Carousel controls -->
+      <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </a>
+      <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </a>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

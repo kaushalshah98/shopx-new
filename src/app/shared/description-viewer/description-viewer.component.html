@@ -1,0 +1,26 @@
+<div
+  [ngClass]="{'description-container':true, 'dark-description-container' :( property.nightmode | async)}"
+>
+  <mat-card class="box-elevation-z8">
+    <h2>{{'shared.description_viewer.name' | translate}} : {{product.name}}</h2>
+    <h3>{{'shared.description_viewer.cuurent_price' | translate}} : {{product.price}}</h3>
+    <mat-divider></mat-divider>
+    <br />
+    <div>
+      <h3>{{'shared.description_viewer.product_details' | translate}}</h3>
+      <ul>
+        <ng-container *ngFor="let item of product.details | keyvalue">
+          <li><b>{{item.key}}</b> : {{item.value}}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <mat-divider></mat-divider>
+    <br />
+    <div>
+      <h3>{{'shared.description_viewer.description' | translate}}</h3>
+      <p>
+        {{product.description}}
+      </p>
+    </div>
+  </mat-card>
+</div>

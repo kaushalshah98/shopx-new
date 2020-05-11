@@ -1,0 +1,157 @@
+@import './../../../assets/css/variable';
+@import './../../../assets/css/var';
+
+.c-site-left-panel-inner {
+  padding-top: 95px;
+
+  .c-site-left-panel-profile {
+    margin: 0 0 25px;
+
+    .c-site-left-panel-profile-photo {
+      height: 94px;
+      width: 94px;
+      border: 1px solid map-get($global-color, neutral-lightest);
+      border-radius: map-get($map: $border-radius, $key: cir);
+      margin: 0 auto 10px;
+      background-position: center 7px;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      align-content: center;
+
+      img {
+        flex-grow: 0;
+        height: auto;
+        width: 94px;
+        margin: auto;
+      }
+    }
+
+    .c-site-left-panel-profile-text {
+      text-align: center;
+
+      span {
+        display: block;
+      }
+
+      a {
+        font-size: 12px;
+        color: map-get($map: $global-color, $key: neutral-light);
+        text-decoration: none;
+        font-weight: 300;
+
+        &:hover {
+          color: map-get($map: $global-color, $key: blueberry);
+        }
+      }
+    }
+  }
+
+  .c-site-left-panel-menu {
+    margin: 0 -20px;
+
+    ::ng-deep .c-site-left-panel-menu-filter {
+      margin: 0 20px;
+
+      @include search-filter;
+    }
+
+    .mat-accordion {
+      .mat-expansion-panel {
+        box-shadow: none;
+        border-radius: map-get($map: $border-radius, $key: r0);
+
+        mat-expansion-panel-header {
+          font-weight: 300;
+          padding: 0 24px 0 20px;
+
+          .mat-expansion-panel-header-title {
+            padding-left: 44px;
+            position: relative;
+            line-height: 18px;
+            color: var(map-get($map: $global-theme-variable, $key: global_neutral_darkest));
+
+            mat-icon {
+              position: absolute;
+              top: 50%;
+              left: 0;
+              margin-top: -12px;
+              font-size: 22px;
+            }
+          }
+
+          &.mat-expanded {
+            background-color: map-get($map: $global-color, $key: neutral-2);
+          }
+
+          ::ng-deep .mat-expansion-indicator::after {
+            margin-top: -3px;
+            padding: 2px;
+            color: map-get($map: $global-color, $key: neutral-lightest);
+          }
+        }
+      }
+
+      ::ng-deep .mat-expansion-panel-content {
+        .mat-expansion-panel-body {
+          padding-left: 0;
+          padding-right: 0;
+          padding-bottom: 0;
+
+          .c-site-left-panel-sub-menu {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+          }
+        }
+      }
+    }
+  }
+}
+.dark-c-site-left-panel-inner {
+  .c-site-left-panel-profile {
+    .c-site-left-panel-profile-photo {
+      border: 1px solid map-get($global-color, neutral-lightest);
+    }
+
+    .c-site-left-panel-profile-text {
+      a {
+        color: map-get($map: $global-color, $key: neutral-light);
+        &:hover {
+          color: map-get($map: $global-color, $key: blueberry);
+        }
+      }
+    }
+  }
+
+  .c-site-left-panel-menu {
+    ::ng-deep .c-site-left-panel-menu-filter {
+      margin: 0 20px;
+      @include search-filter;
+    }
+    .mat-accordion .mat-expansion-panel:not([class*='mat-elevation-z']) {
+      box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.06), 1px 1px 6px rgba(255, 255, 255, 0.09) !important;
+    }
+    .mat-accordion {
+      .mat-expansion-panel {
+        border-radius: map-get($map: $border-radius, $key: r0);
+        mat-expansion-panel-header {
+          background-color: $darkgray;
+          .mat-expansion-panel-header-title {
+            mat-icon {
+              color: wheat !important;
+            }
+          }
+          &.mat-expanded {
+            background-color: $darkgray;
+          }
+
+          .mat-expansion-indicator::after {
+            color: $white !important;
+          }
+        }
+      }
+    }
+  }
+}

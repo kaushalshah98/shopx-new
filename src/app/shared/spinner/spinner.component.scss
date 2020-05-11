@@ -1,0 +1,10 @@
+@import '../../../assets/css/var.scss';
+.spinner {
+  position: absolute !important;
+  top: 35%;
+  left: 47%;
+}
+:host ::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: $darkblue;
+}

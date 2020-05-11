@@ -1,0 +1,44 @@
+@import '../../../assets/css/var.scss';
+
+.profile-container {
+  height: 100%;
+  padding: 18px 0px 20px 200px;
+  min-height: 450px;
+  .profile-image-card {
+    max-width: 800px;
+    // max-height: 410px;
+    height: unset;
+    border-radius: 0px;
+    .profile-image {
+      display: flex;
+      background: #eee;
+      max-height: 100%;
+      margin: 0;
+      padding: 0;
+      justify-content: center;
+      img {
+        // height: 400px !important;
+        // max-height: 350px !important;
+        // max-width: 260px !important;
+        height: 400px !important;
+        max-height: 400px !important;
+        max-width: 400px !important;
+      }
+    }
+  }
+  .side-image {
+    display: block;
+    padding-left: 100px;
+    .small-card {
+      max-height: 130px;
+      max-width: 130px;
+      .small-image {
+        display: flex;
+        justify-content: center;
+        img {
+          height: 100px;
+        }
+      }
+    }
+  }
+}

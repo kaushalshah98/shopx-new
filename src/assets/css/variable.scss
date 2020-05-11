@@ -1,0 +1,156 @@
+$screen-height: calc(100vh - 56px);
+$site-header-height: 56px;
+$side-panel-width: 260px;
+$page-header-height: 70px; // page header height
+
+/* css variable
+--------------------------*/
+
+$global-theme-variable : (
+  global_color_primary : --global-color-primary,
+  global_color_secondary : --global-color-secondary,
+  global_color_raspberry : --global-color-raspberry,
+  global_neutral_darkest : --global-neutral-darkest
+);
+
+:root {
+  #{map-get($map: $global-theme-variable, $key: global_color_primary)}: #604e99;
+  #{map-get($map: $global-theme-variable, $key: global_color_secondary)}: #ff658e;
+  #{map-get($map: $global-theme-variable, $key: global_color_raspberry)}: #e2382c;
+  #{map-get($map: $global-theme-variable, $key: global_neutral_darkest)}: #222222;
+}
+
+/* Paths
+--------------------------*/
+$imagesPath: '';
+
+/* Color
+--------------------------*/
+$global-color: (primary: #1a81c5,
+  secondary: #222222,
+  blueberry: #106cc8,
+  mango: #ffd740,
+  raspberry: #e2382c,
+  greenapple: #149c17,
+  neutral-darkest: var(map-get($map: $global-theme-variable, $key: global_neutral_darkest)),
+  neutral-dark: #333333,
+  neutral: #666666,
+  neutral-light: #888888,
+  neutral-lighter: #999999,
+  neutral-lightest: #cccccc,
+  neutral-2: #e3e3e3,
+  neutral-1: #f4f4f4,
+  neutral-0: #f7f7f7,
+  white: #ffffff);
+
+$global-color-lightest: (primary: lighten(map-get($map: $global-color,
+      $key: primary),
+    54%),
+  blueberry: lighten(map-get($map: $global-color,
+      $key: blueberry),
+    52%),
+  mango: lighten(map-get($map: $global-color,
+      $key: mango),
+    33%),
+  raspberry: lighten(map-get($map: $global-color,
+      $key: raspberry),
+    38%),
+  greenapple: lighten(map-get($map: $global-color,
+      $key: greenapple),
+    38%));
+
+$global-color-transparent: (neutral-dark: rgba(0, 0, 0, 0.3),
+);
+/* Border-radius
+--------------------------*/
+$border-radius: (r0: 0px,
+  r1: 1px,
+  r2: 2px,
+  r3: 3px,
+  //r4: 4px,
+  r5: 5px,
+  r10: 10px,
+  r15: 15px,
+  r20: 20px,
+  r25: 25px,
+  cir: 50%);
+
+/* Font-size
+--------------------------*/
+$font-size: (default: 14px,
+  sm: 12px,
+  x-sm: 11px,
+  lg: 16px,
+  x-lg: 18px);
+
+/* Layout Utilities
+--------------------------*/
+@mixin after-clear {
+  &::after {
+    clear: both;
+    display: block;
+    content: '';
+  }
+}
+
+@mixin animate-common {
+  transition: all ease 200ms;
+}
+
+/* Scroll bar design
+--------------------------*/
+@mixin scrollbar-light {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: map-get($map: $border-radius, $key: r5);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Form updates
+--------------------------*/
+@mixin search-filter {
+  .mat-form-field-appearance-fill {
+    .mat-form-field-wrapper {
+      padding-bottom: 7px;
+
+      .mat-form-field-flex {
+        padding: 0 10px 0;
+        border-radius: map-get($map: $border-radius, $key: r3);
+
+        .mat-form-field-prefix {
+          bottom: -6px;
+
+          .mat-icon {
+            margin-right: 5px;
+          }
+        }
+
+        .mat-form-field-infix {
+          border-top: 0;
+        }
+      }
+
+      .mat-form-field-underline {
+        display: none;
+      }
+    }
+  }
+}
+
+/* Transition
+--------------------------*/
+@mixin common-transition {
+  transition: all 200ms ease-in-out;
+}

@@ -1,0 +1,94 @@
+<div [ngClass]="{'input-template':true, 'dark-input-template' :( property.nightmode | async)}">
+  <mat-card class="input-card box-elevation-z8">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+    <form
+      [ngClass]="{'input-form':true,'dark-form': ( property.nightmode | async)}"
+      [formGroup]="registerform"
+    >
+      <mat-form-field class="input-full-width">
+        <mat-label>{{"user.form.name" | translate}}</mat-label>
+        <input autocomplete="off" matInput formControlName="usernameFormControl" />
+        <mat-error
+          *ngIf="hasError('usernameFormControl','minlength') && !(hasError('usernameFormControl','pattern'))"
+        >
+          {{"user.form.name" | translate}}
+          {{"user.form_validations.must_be_at_least_3_characters_long" | translate}}
+        </mat-error>
+        <mat-error *ngIf="hasError('usernameFormControl','pattern')">
+          {{"user.form_validations.invalid_input" |translate}}
+        </mat-error>
+        <mat-error *ngIf="hasError('usernameFormControl','required')">
+          {{"user.form.name" | translate}} {{"user.form_validations.is_required" | translate}}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="input-full-width">
+        <mat-label>{{"user.form.email" | translate}}</mat-label>
+        <input autocomplete="off" matInput formControlName="emailFormControl" />
+        <mat-error *ngIf="hasError('emailFormControl','email')">
+          {{"user.form_validations.please_enter_a_valid_email_address" | translate}}
+        </mat-error>
+        <mat-error *ngIf="hasError('emailFormControl','required')">
+          {{"user.form.email" | translate}} {{"user.form_validations.is_required" | translate}}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="input-full-width">
+        <mat-label>Profile Pic</mat-label>
+        <input autocomplete="off" matInput formControlName="photoFormControl" />
+        <mat-error *ngIf="hasError('photoFormControl','required')">
+          {{"user.form.profile_pic" | translate}} {{"user.form_validations.is_required" |
+          translate}}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="input-full-width">
+        <mat-label>{{"user.form.password" | translate}}</mat-label>
+        <input autocomplete="off" matInput formControlName="passwordFormControl" />
+        <mat-error *ngIf="hasError('passwordFormControl','minlength')">
+          {{"user.form.password" | translate}} must be at least 4 characters long.
+        </mat-error>
+        <mat-error *ngIf="hasError('passwordFormControl','required')">
+          {{"user.form.password" | translate}} {{"user.form_validations.is_required" | translate}}
+        </mat-error>
+      </mat-form-field>
+
+      <!-- <input
+        accept="image/*"
+        type="file"
+        formControlName="photoFormControl"
+        (change)="onImageSelected($event)"
+        #imageinput
+        style="display: none;"
+      />
+      <br />
+      <br />
+
+      <button color="primary" mat-raised-button (click)="imageinput.click()">
+        Upload A Profile Pic
+      </button>
+      <ng-container>
+        <img
+          class="register-image"
+          [src]="selectedimage != undefined? selectedimage
+        : '../../../../assets/images/icon-login-profile.svg'"
+        />
+      </ng-container> -->
+    </form>
+    <!-- <br /> -->
+    <mat-card-content> </mat-card-content>
+    <mat-card-actions class="mat-actions">
+      <button
+        mat-raised-button
+        [disabled]="registerform.invalid"
+        class="signin-btn"
+        (click)="register()"
+      >
+        {{"user.form.register" | translate}}
+      </button>
+    </mat-card-actions>
+    <div class="input-text" style="margin-top: -34px;">
+      {{"user.form.already_a_member" | translate}}
+      <a [routerLink]="['/login']"> {{"user.form.login" | translate}} </a>
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,114 @@
+<div [ngClass]="{'card-container':true, 'dark-card-container' :( property.nightmode | async)}">
+  <mat-card class="img-card">
+    <img
+      class="card-image"
+      src="https://m.media-amazon.com/images/G/31/img19/AMS/banners1/Home-Products._CB454409463_.jpg"
+    />
+  </mat-card>
+</div>
+<br />
+<div class="container">
+  <div class="row">
+    <aside class="col-md-6">
+      <!-- ================== 1-carousel bootstrap  ==================  -->
+      <div id="carousel1_indicator" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel1_indicator" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel1_indicator" data-slide-to="1"></li>
+          <li data-target="#carousel1_indicator" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              class="d-block w-100"
+              src="https://pmcspy.files.wordpress.com/2019/07/best-mens-watches-2019-e1565040231745.jpg?w=714"
+              alt="First slide"
+            />
+            <article class="carousel-caption d-none d-md-block">
+              <h5 class="item-text">Top Brand Watch</h5>
+              <p class="item-text">
+                The Best Men’s Watches For Every Budget and Style
+              </p>
+            </article>
+          </div>
+          <div class="carousel-item" *ngFor="let item of items_slider1">
+            <img class="d-block w-100" src="{{ item.image }}" alt="Second slide" />
+            <article class="carousel-caption d-none d-md-block">
+              <h5 class="item-text">{{ item.name }}</h5>
+              <p class="item-text">
+                {{ item.description }}
+              </p>
+            </article>
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#carousel1_indicator"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#carousel1_indicator"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </aside>
+    <aside class="col-md-6">
+      <div id="carousel2_indicator" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              class="d-block w-100"
+              src="https://i.pinimg.com/736x/d8/34/9e/d8349e90d1721c40e8b6c93f666c7e74.jpg"
+              alt="First slide"
+            />
+            <article class="carousel-caption d-none d-md-block">
+              <h5 class="item-text">Top Brand Sarees</h5>
+              <p class="item-text">
+                Ruffle Saree Style is the Hottest Trend of this Season
+              </p>
+            </article>
+            <!-- carousel-caption .// -->
+          </div>
+          <div class="carousel-item" *ngFor="let item of items_slider2">
+            <img class="d-block w-100" src="{{ item.image }}" alt="Second slide" />
+            <article class="carousel-caption d-none d-md-block">
+              <h5 class="item-text">{{ item.name }}</h5>
+              <p class="item-text">
+                {{ item.description }}
+              </p>
+            </article>
+            <!-- carousel-caption .// -->
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#carousel2_indicator"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#carousel2_indicator"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <!-- ==================  2-carousel bootstrap.// ==================  -->
+    </aside>
+  </div>
+</div>

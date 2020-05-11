@@ -1,0 +1,123 @@
+<app-jumbotron [Heading]="'admin.main_heading.admin_management'"></app-jumbotron>
+<div [ngClass]="{'space-medium':true, 'dark-space-medium' :( property.nightmode | async)}">
+  <div class="containerr">
+    <div class="roww">
+      <div class="one-part">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text">{{"menu_item.product_management" | translate}}</a>
+          </div>
+          <!-- <div class="showcase-img">
+            <a> <img class="small-image" src="" alt=""/></a>
+          </div> -->
+        </mat-card>
+      </div>
+    </div>
+    <br />
+    <div class="roww">
+      <div class="four-part">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text" [routerLink]="['/admin/viewproducts']">
+              {{"menu_item.view_all_products" | translate}}</a
+            >
+          </div>
+          <!-- <div class="showcase-img">
+            <a><img class="small-image" src="" alt=""/></a>
+          </div> -->
+        </mat-card>
+      </div>
+      <div class="four-part">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text" [routerLink]="['/admin/addproduct']">
+              {{"menu_item.add_a_product" | translate}}</a
+            >
+          </div>
+          <!-- <div class="showcase-img">
+            <a><img class="small-image" src="" alt=""/></a>
+          </div> -->
+        </mat-card>
+      </div>
+      <div class="four-part">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text" [routerLink]="['/admin/updateproduct']">
+              {{"menu_item.update_a_product" | translate}}</a
+            >
+          </div>
+          <!-- <div class="showcase-img">
+            <a><img class="small-image" src="" alt=""/></a>
+          </div> -->
+        </mat-card>
+      </div>
+      <div class="four-part">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text" [routerLink]="['/admin/deleteproduct']">
+              {{"menu_item.delete_a_product" | translate}}</a
+            >
+          </div>
+          <!-- <div class="showcase-img">
+            <a><img class="small-image" src="" alt=""/></a>
+          </div> -->
+        </mat-card>
+      </div>
+    </div>
+    <br />
+  </div>
+  <div class="containerr">
+    <div class="roww">
+      <div class="one-part">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text">{{"menu_item.user_management" | translate}}</a>
+          </div>
+          <!-- <div class="showcase-img">
+            <a> <img class="small-image" src="" alt=""/></a>
+          </div> -->
+        </mat-card>
+      </div>
+    </div>
+    <br />
+    <div class="roww">
+      <div class="three-part">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text" [routerLink]="['/admin/viewusers']">
+              {{"menu_item.view_user" | translate}}</a
+            >
+          </div>
+          <!-- <div class="showcase-img">
+            <a><img class="small-image" src="" alt=""/></a>
+          </div> -->
+        </mat-card>
+      </div>
+      <div class="three-part">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text" [routerLink]="['/admin/blockuser']">
+              {{"menu_item.block_user" | translate}}</a
+            >
+          </div>
+          <!-- <div class="showcase-img">
+            <a><img class="small-image" src="" alt=""/></a>
+          </div> -->
+        </mat-card>
+      </div>
+      <div class="three-part">
+        <mat-card class="showcase-block">
+          <div class="display-logo ">
+            <a class="display-text" [routerLink]="['/admin/vieworders']">
+              {{"menu_item.view_orders" | translate}}</a
+            >
+          </div>
+          <!-- <div class="showcase-img">
+            <a><img class="small-image" src="" alt=""/></a>
+          </div> -->
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer [position]="'sticky'"></app-footer>

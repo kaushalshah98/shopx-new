@@ -1,0 +1,107 @@
+<app-jumbotron [Heading]="'admin.main_heading.all_users'"></app-jumbotron>
+<app-spinner [loading]="dataLoading" class="centre-spinner"></app-spinner>
+<div [ngClass]="{'outer-wrap': true , 'dark-outer-wrap' :( property.nightmode | async)}">
+  <mat-card class="display-products-card">
+    <mat-card-content>
+      <div [ngClass]="{'dark-form': ( property.nightmode | async)}">
+        <div fxLayout="row">
+          <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.gt-md="40">
+            <mat-form-field class="mat-block" id="matFrmFieldUserStatus">
+              <mat-select
+                id="matSelectUserStatus"
+                placeholder="Status"
+                [(value)]="selectedStatus"
+                (selectionChange)="statusChanged(selectedStatus)"
+              >
+                <mat-option
+                  *ngFor="let status of status"
+                  [ngClass]="{'dark-option': ( property.nightmode | async)}"
+                  value="{{status.name}}"
+                  >{{status.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+        <mat-form-field class="search-block" floatLabel="never">
+          <input
+            autocomplete="off"
+            matInput
+            autocomplete="off"
+            (keyup)="applyFilter($event)"
+            placeholder="{{'admin.table.search' | translate}}"
+          />
+          <mat-icon matSuffix style="font-size: 18px;">search</mat-icon>
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <div [ngClass]="{'dark-table-wrapper' :( property.nightmode | async) ,dimmed: dimmed}">
+          <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
+            <ng-container matColumnDef="status">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element">
+                <span
+                  [class]="
+                    element && element.status == true
+                      ? 'u-status-indicator-enable'
+                      : 'u-status-indicator-disabled'
+                  "
+                ></span>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="profilepic">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>
+                {{"admin.table.profile_pic" | translate}}
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <img class="small-size-image" src="{{ element.profilepic }}" />
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>
+                &nbsp;&nbsp; {{"admin.table.name" | translate}}
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{"admin.table.email" | translate}}
+              </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.email }}
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="action">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>
+                &nbsp; {{"admin.table.action" | translate}}
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <button
+                  mat-icon-button
+                  color="warn"
+                  matTooltip="{{'tooltip.block' | translate}}"
+                  matTooltipPosition="right"
+                  (click)="blockuser(element)"
+                >
+                  <mat-icon>block</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr
+              mat-row
+              *matRowDef="let element; columns: columnsToDisplay"
+              class="user-element-row"
+            ></tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+<app-footer [position]="'sticky'"></app-footer>

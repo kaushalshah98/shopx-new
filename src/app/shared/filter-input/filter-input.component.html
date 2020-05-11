@@ -1,0 +1,46 @@
+<div [ngClass]="{'filter-input':true, 'dark-filter-input' :( property.nightmode | async)}">
+  <div [ngClass]="{'dark-form': ( property.nightmode | async)}">
+    <mat-form-field appearance="outline">
+      <mat-label>{{'shared.filter.search' | translate}}</mat-label>
+      <input matInput placeholder="{{'shared.filter.type' | translate}}" />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+  &nbsp;&nbsp;
+  <button
+    matTooltip="{{'tooltip.filter' | translate}}"
+    [matTooltipShowDelay]="300"
+    matTooltipPosition="above"
+    [matMenuTriggerFor]="filtermenu"
+    mat-flat-button
+    class="filter-btn"
+  >
+    <mat-icon>filter_list</mat-icon>
+  </button>
+  <mat-menu #filtermenu="matMenu" xPosition="before">
+    <button
+      [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+      mat-menu-item
+      (click)="onFilter('name')"
+    >
+      <mat-icon> sort </mat-icon>
+      <span>{{'shared.filter.sort_by_name' | translate}} </span>
+    </button>
+    <button
+      [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+      mat-menu-item
+      (click)="onFilter('low')"
+    >
+      <mat-icon> arrow_downward </mat-icon>
+      <span>{{'shared.filter.low_to_high' | translate}}</span>
+    </button>
+    <button
+      [ngClass]="{'dark-menuu-item':( property.nightmode | async)}"
+      mat-menu-item
+      (click)="onFilter('high')"
+    >
+      <mat-icon> arrow_upward </mat-icon>
+      <span>{{'shared.filter.high_to_low' | translate}}</span>
+    </button>
+  </mat-menu>
+</div>

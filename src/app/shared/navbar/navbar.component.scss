@@ -1,0 +1,79 @@
+@import '../../../assets/css/var.scss';
+.nav-bar {
+  z-index: 1000;
+  top: 0;
+  background-color: $darkblue !important;
+  color: $white !important;
+  position: sticky !important;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+
+  .nav-button {
+    border: 0;
+    padding: 0;
+    height: 60px;
+    width: 60px;
+    background: transparent;
+    color: $white;
+    border-radius: 0;
+    position: absolute;
+    left: 0;
+  }
+  .search-bar {
+    font-size: 8px;
+    position: relative;
+    left: 50px;
+    top: 5px;
+    .mat-form-field-wrapper {
+      margin: 0;
+      .mat-form-field-flex {
+        .mat-form-field-outline {
+          color: black;
+        }
+        .mat-input-element {
+          font-size: 20px;
+        }
+      }
+    }
+    .search-icon {
+      font-size: 25px;
+      margin-right: 20px;
+    }
+  }
+  .language-dropdown {
+    .mat-select {
+      width: 15% !important;
+    }
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  .navbar-buttons {
+    .mat-raised-button {
+      color: $lighterblack;
+      background-color: $white;
+    }
+  }
+}
+.black-nav-bar {
+  background-color: $darkpurple !important;
+  color: $white;
+  .nav-button {
+    color: $white;
+  }
+  .search-bar {
+    .mat-form-field-wrapper {
+      .mat-form-field-flex {
+        .mat-form-field-outline {
+          color: black;
+        }
+      }
+    }
+  }
+  .navbar-buttons {
+    .mat-raised-button {
+      color: $lightwhite;
+      background-color: $darkergray;
+    }
+  }
+}

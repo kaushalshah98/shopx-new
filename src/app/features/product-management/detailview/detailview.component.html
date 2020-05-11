@@ -1,0 +1,18 @@
+<app-navbar [isHidden]="true"></app-navbar>
+<app-jumbotron [Heading]="'user.main_heading.detail_view'"></app-jumbotron>
+<app-spinner [loading]="dataLoading" class="centre-spinner"></app-spinner>
+<ng-container *ngIf="productdata">
+  <div [ngClass]="{'dark-mat-tab' :( property.nightmode | async)}">
+    <mat-tab-group>
+      <mat-tab label="{{'user.form_heading.images' | translate}}">
+        <app-image-viewer [product]="productdata.image"></app-image-viewer>
+      </mat-tab>
+      <mat-tab label="{{'user.form_heading.description' | translate}}">
+        <app-description-viewer [product]="productdata"></app-description-viewer>
+      </mat-tab>
+      <mat-tab label="{{'user.form_heading.reviews' | translate}}">
+        <app-reviews-viewer [product_id]="productid"></app-reviews-viewer>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</ng-container>

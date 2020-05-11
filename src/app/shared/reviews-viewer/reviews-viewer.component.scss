@@ -1,0 +1,63 @@
+@import '../../../assets/css/var.scss';
+
+.review-container {
+  padding: 20px 50px 20px 50px;
+  .mat-form-field {
+    width: 100%;
+  }
+  .mat-list-item {
+    .mat-list-icon {
+      color: gold !important;
+    }
+    .mat-icon {
+      color: $red;
+    }
+  }
+}
+.dark-review-container {
+  .mat-card {
+    background-color: $darkgray;
+    color: $white;
+    &.box-elevation-z8 {
+      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0 3px 14px 2px rgba(0, 0, 0, 0.12) !important;
+    }
+  }
+  .mat-divider {
+    border-top-color: $black;
+  }
+  .mat-list-item {
+    color: $white;
+    .username {
+      color: darksalmon;
+    }
+  }
+  .mat-list-base .mat-subheader {
+    color: $green;
+  }
+
+  .mat-select-value {
+    color: rgba(255, 255, 255, 0.87) !important;
+  }
+  .mat-form-field.mat-focussed.mat-form-field-ripple {
+    background-color: $darkpurple !important;
+  }
+  .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    color: rgba(255, 255, 255, 0.87) !important;
+  }
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: rgba(255, 255, 255, 0.52) !important;
+  }
+  .mat-form-field.mat-focussed.mat-form-field-ripple {
+    background-color: $darkpurple !important;
+  }
+  .mat-input-element {
+    caret-color: $darkpurple !important;
+  }
+  .mat-form-field-label {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+  .mat-input-element::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+}
