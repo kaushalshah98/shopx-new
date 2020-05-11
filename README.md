@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Installation
 
-Run `npm install` or `npm i` for installing all dependencies.It will create a node_modules folder.
+Run `npm install` or `npm i` for installing all dependencies.It will create a `node_modules` folder.
 
 ## Development server
 
