@@ -26,11 +26,12 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-## Visual Studio Code Recommended Plugin 
-- TSLint (https://github.com/Microsoft/vscode-typescript-tslint-plugin)
-- vscode-icons (https://github.com/vscode-icons/vscode-icons)
-- sass (https://github.com/robinbentley/vscode-sass-indented)
-- prettier (https://github.com/prettier/prettier-vscode)
-- bracket pair colorizer (https://github.com/CoenraadS/BracketPair)
-- angular v7 Snippets  (https://github.com/johnpapa/vscode-angular-snippets)
-- styleline (https://github.com/shinnn/vscode-stylelint)
+## Visual Studio Code Recommended Plugin
+
+- TSLint (<https://github.com/Microsoft/vscode-typescript-tslint-plugin)>
+- vscode-icons (<https://github.com/vscode-icons/vscode-icons)>
+- sass (<https://github.com/robinbentley/vscode-sass-indented)>
+- prettier (<https://github.com/prettier/prettier-vscode)>
+- bracket pair colorizer (<https://github.com/CoenraadS/BracketPair)>
+- angular v7 Snippets  (<https://github.com/johnpapa/vscode-angular-snippets)>
+- styleline (<https://github.com/shinnn/vscode-stylelint)>
