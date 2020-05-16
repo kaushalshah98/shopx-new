@@ -1,13 +1,13 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { ActivatedRoute } from '@angular/router';
 import { NOTIFICATION } from '@core/api/names';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
-import { User, TrackError } from '@shared/interfaces';
+import { TrackError, User } from '@shared/interfaces';
 import { AdminManagementService } from '../../admin-service/admin-management.service';
 import { UsersResolverService } from './users-resolver.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-view-users',

@@ -9,8 +9,8 @@ import { UpdateComponent } from './product-components/update-product/update/upda
 import { ViewProductsComponent } from './product-components/view-products/view-products.component';
 import { BlockUserComponent } from './user-components/block-user/block-user.component';
 import { ViewUserOrderComponent } from './user-components/view-user-order/view-user-order.component';
-import { ViewUsersComponent } from './user-components/view-users/view-users.component';
 import { UsersResolverService } from './user-components/view-users/users-resolver.service';
+import { ViewUsersComponent } from './user-components/view-users/view-users.component';
 
 const routes: Routes = [
   {

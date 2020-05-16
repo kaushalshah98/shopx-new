@@ -3,8 +3,8 @@ import { ApiService, PATH } from '@core/api/api.service';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
 import { BuyList } from '@shared/interfaces';
 import { Observable } from 'rxjs';
-import { UserManagementService } from '../../user-service/user-management.service';
 import { map } from 'rxjs/internal/operators/map';
+import { UserManagementService } from '../../user-service/user-management.service';
 
 @Injectable({
   providedIn: 'root'

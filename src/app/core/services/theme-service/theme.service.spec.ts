@@ -1,5 +1,5 @@
-import { TestBed } from '@angular/core/testing';
 import { HttpTestingController } from '@angular/common/http';
+import { TestBed } from '@angular/core/testing';
 import { ThemeService } from './theme.service';
 
 describe('ThemeService', () => {
@@ -17,6 +17,6 @@ describe('ThemeService', () => {
   it('should be get the theme', () => {
     themeservice.getTheme().subscribe();
 
-    let themerequest: TestRequest = httpTestingController.expectOne();
+    const themerequest: TestRequest = httpTestingController.expectOne();
   });
 });

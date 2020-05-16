@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { RouterStateSnapshot, Resolve, ActivatedRouteSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import { TrackError, User } from '@shared/interfaces';
 import { Observable, of } from 'rxjs';
-import { User, TrackError } from '@shared/interfaces';
 import { catchError } from 'rxjs/operators';
 import { AdminManagementService } from '../../admin-service/admin-management.service';
 

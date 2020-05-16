@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { ApiService, PATH } from '@core/api/api.service';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
 import { Observable } from 'rxjs';
-import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
 import { map } from 'rxjs/internal/operators/map';
+import { UserManagementService } from 'src/app/features/user-management/user-service/user-management.service';
 
 @Injectable({
   providedIn: 'root'

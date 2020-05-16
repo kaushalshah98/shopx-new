@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGaurdService } from '@core/auth-management/auth-gaurd/auth-gaurd.service';
 import { UserauthguardService } from '@core/auth-management/user-auth-guard/userauthguard.service';
+import { SelectiveStrategyService } from '@services/selective-strategy.service';
 import { AuthorsCarouselComponent } from '@shared/authors-carousel/authors-carousel.component';
 import { DetailviewComponent } from './features/product-management/detailview/detailview.component';
 import { ProductcompareComponent } from './features/product-management/productcompare/productcompare.component';
 import { ContactComponent } from './features/user-management/contact/contact.component';
 import { PageNotFoundComponent } from './page-not-found.component';
-import { SelectiveStrategyService } from '@services/selective-strategy.service';
 
 const routes: Routes = [
   {
