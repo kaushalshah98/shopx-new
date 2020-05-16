@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NotificationService } from '@services/notification/notification.service';
 import { PropertyAccessService } from '@services/propert-access/property-access.service';
@@ -12,7 +12,7 @@ import { ProductManagementService } from '../product-service/product-management.
   templateUrl: './detailview.component.html',
   styleUrls: ['./detailview.component.scss']
 })
-export class DetailviewComponent implements OnInit {
+export class DetailviewComponent implements OnInit, AfterViewInit {
   state$: any;
   productid: string;
   productdata: ProductItem;
@@ -23,8 +23,11 @@ export class DetailviewComponent implements OnInit {
     public property: PropertyAccessService,
     private productservice: ProductManagementService,
     private notification: NotificationService
-  ) {}
+  ) { }
 
+  ngAfterViewInit() {
+    this.dataLoading.emit(false);
+  }
   ngOnInit() {
     this.state$ = this.activateRouter.paramMap
       .pipe(map(() => window.history.state))

@@ -24,13 +24,11 @@ export class NotificationService {
 
   show(message: string) {
     this.translate.get(message).subscribe((res: string) => {
-      console.log(res);
       return this.toastr.success(res);
     });
   }
   success(message: string) {
     this.translate.get(message).subscribe((res: string) => {
-      console.log(res);
       return this.toastr.success(res, 'Success');
     });
   }
@@ -39,13 +37,11 @@ export class NotificationService {
   }
   warning(message: string) {
     this.translate.get(message).subscribe((res: string) => {
-      console.log(res);
       return this.toastr.warning(res, 'Warning');
     });
   }
   info(message: string) {
     this.translate.get(message).subscribe((res: string) => {
-      console.log(res);
       return this.toastr.info(res, 'Information');
     });
   }

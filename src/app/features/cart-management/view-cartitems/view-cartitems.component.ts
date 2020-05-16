@@ -115,7 +115,6 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
     );
   }
   removeFromCart(cartitem: CartItem) {
-    this.dimmed = true;
     const product = {
       product_id: cartitem.product_id
     };
@@ -123,6 +122,7 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
       .showConfirmDialog(`${CONFIRM.are_you_sure_want_to_remove_this_item}`)
       .subscribe(async (result) => {
         if (result === 'yes') {
+          this.dimmed = true;
           this.dataLoading.emit(true);
           await this.cartservice
             .removefromCart(product)
@@ -147,11 +147,11 @@ export class ViewCartitemsComponent implements OnInit, AfterViewInit {
     event.preventDefault();
   }
   emptycart() {
-    this.dimmed = true;
     this.dialog
       .showConfirmDialog(`${CONFIRM.are_you_sure_want_to_clear_your_cart}`)
       .subscribe(async (result) => {
         if (result === 'yes') {
+          this.dimmed = true;
           this.dataLoading.emit(true);
           await this.cartservice
             .clearCart()

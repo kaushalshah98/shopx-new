@@ -24,7 +24,7 @@ export class ViewOrdersComponent implements OnInit {
     public property: PropertyAccessService,
     private orderservice: OrderService,
     private notification: NotificationService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.initializeOrders();
@@ -33,7 +33,7 @@ export class ViewOrdersComponent implements OnInit {
     this.dataLoading.emit(true);
     setTimeout(() => {
       this.orderservice.getUserOrder().subscribe(
-        (res) => (this.orderitems = res),
+        (res) => this.orderitems = res,
         (error: HttpErrorResponse) => {
           this.dataLoading.emit(false);
           this.notification.error(error.message);
@@ -50,7 +50,7 @@ export class ViewOrdersComponent implements OnInit {
       .showConfirmDialog(`${CONFIRM.are_you_sure_want_to_cancel_this_order}`)
       .subscribe((result) => {
         if (result === 'yes') {
-          this.orderitems.splice(i);
+          this.orderitems.splice(i,1);
           this.orderservice.removeOrder(this.orderitems).subscribe(
             (res) => res,
             (error: HttpErrorResponse) => {

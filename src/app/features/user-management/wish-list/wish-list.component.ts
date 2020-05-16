@@ -18,7 +18,7 @@ import { WishlistService } from './wishlist.service';
 export class WishListComponent implements OnInit, AfterViewInit {
   heading = 'YOUR WISH-LIST';
   @ViewChild(MatSort, { static: false }) sort: MatSort;
-  dataLoading: EventEmitter<boolean> = new EventEmitter(false);
+  dataLoading: EventEmitter<boolean> = new EventEmitter(true);
   dataSource = new MatTableDataSource<ProductItem>();
   displayedColumns: string[] = ['image', 'name', 'price', 'action', 'delete'];
   height = 320;
@@ -30,9 +30,10 @@ export class WishListComponent implements OnInit, AfterViewInit {
     private cartservice: CartManagementService,
     private wishlistservice: WishlistService,
     private notification: NotificationService
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
+    this.dataLoading.emit(false);
     this.dataSource.sort = this.sort;
   }
   ngOnInit() {
@@ -69,7 +70,6 @@ export class WishListComponent implements OnInit, AfterViewInit {
     this.view.showQuickview(item);
   }
   removeFromWishlist(item: ProductItem) {
-    this.dimmed = true;
     const product = {
       product_id: item.product_id
     };
@@ -77,6 +77,7 @@ export class WishListComponent implements OnInit, AfterViewInit {
       .showConfirmDialog(`${CONFIRM.are_you_sure_want_to_remove_product}`)
       .subscribe((result) => {
         if (result === 'yes') {
+          this.dimmed = true;
           this.dataLoading.emit(true);
           this.wishlistservice.updateWishlist(product).subscribe(
             (res) => res,
@@ -124,12 +125,12 @@ export class WishListComponent implements OnInit, AfterViewInit {
   }
 
   emptywishList() {
-    this.dimmed = true;
     this.dialog
       .showConfirmDialog(`${CONFIRM.are_you_sure_want_to_clear_your_list}`)
       .subscribe((result) => {
         if (result === 'yes') {
           this.dataLoading.emit(true);
+          this.dimmed = true;
           this.wishlistservice.clearWishlist().subscribe(
             (res) => res,
             (error: HttpErrorResponse) => {

@@ -49,7 +49,7 @@
                   *ngFor="let subject of subject"
                   [value]="subject.name"
                 >
-                  {{subject.name | translate}}
+                  {{"user.form.subject."+subject.name | translate}}
                 </mat-option>
               </mat-select>
               <mat-error *ngIf="hasError('subjectFormControl','required')">

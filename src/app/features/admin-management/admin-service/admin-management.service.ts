@@ -3,7 +3,7 @@ import { ApiService, PATH } from '@core/api/api.service';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
 import { Observable, throwError } from 'rxjs';
 import { User, TrackError } from '@shared/interfaces';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
@@ -17,6 +17,7 @@ export class AdminManagementService {
   getusers(): Observable<User[] | TrackError> {
     return this.apiservice.get(`${PATH.GET_USER_LIST}`)
       .pipe(
+        map((response) => response.body.result),
         catchError(err => this.handleHttpError(err))
       );
   }

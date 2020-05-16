@@ -13,10 +13,10 @@ import { UserManagementService } from '../user-service/user-management.service';
 })
 export class ContactComponent implements OnInit, AfterViewInit {
   subject = [
-    { name: 'user.form.subject.complaint' },
-    { name: 'user.form.subject.feature_request' },
-    { name: 'user.form.subject.bug_report' },
-    { name: 'user.form.subject.feedback' }
+    { name: 'complaint' },
+    { name: 'feature_request' },
+    { name: 'bug_report' },
+    { name: 'feedback' }
   ];
   contactform: FormGroup;
   padding = 40;

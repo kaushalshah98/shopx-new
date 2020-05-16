@@ -43,38 +43,38 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
     this.fetchusers();
   }
   fetchusers() {
-    // this.dataLoading.emit(true);
-    // this.dimmed = true;
-    // setTimeout(() => {
-      let resolvelist: User[] | TrackError = this.route.snapshot.data['resolvedUsers'];
-      if (resolvelist instanceof TrackError) {
-        console.log(`Error message is ${resolvelist.friendlymessage}`);
-      } else {
-        this.userlist = resolvelist;
-        this.dataSource.data = resolvelist;
-      }
-      // this.adminservice.getusers().subscribe(
-      //   (res: User[]) => {
-      //     if (res === null || res === undefined) {
-      //       this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
-      //       this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
-      //     } else {
-      //       this.userlist = res;
-      //       this.dataSource.data = res;
-      //     }
-      //   },
-      //   (error: TrackError) => {
-      //     this.dataLoading.emit(false);
-      //     console.log(error);
-      //     this.dimmed = false;
-      //     this.notification.error(error.friendlymessage);
-      //   },
-      //   () => {
-      //     this.dimmed = false;
-      //     this.dataLoading.emit(false);
-      //   }
-      // );
-    // }, 3000);
+    this.dataLoading.emit(true);
+    this.dimmed = true;
+    setTimeout(() => {
+      // let resolvelist: User[] | TrackError = this.route.snapshot.data['resolvedUsers'];
+      // if (resolvelist instanceof TrackError) {
+      //   console.log(`Error message is ${resolvelist.friendlymessage}`);
+      // } else {
+      //   this.userlist = resolvelist;
+      //   this.dataSource.data = resolvelist;
+      // }
+      this.adminservice.getusers().subscribe(
+        (res: User[]) => {
+          if (res === null || res === undefined) {
+            this.notification.warning(`${NOTIFICATION.Check_Your_Network}`);
+            this.notification.info(`${NOTIFICATION.Try_to_reload_the_page}`);
+          } else {
+            this.userlist = res;
+            this.dataSource.data = res;
+          }
+        },
+        (error: TrackError) => {
+          this.dataLoading.emit(false);
+          console.log(error);
+          this.dimmed = false;
+          this.notification.error(error.friendlymessage);
+        },
+        () => {
+          this.dimmed = false;
+          this.dataLoading.emit(false);
+        }
+      );
+    }, 3000);
   }
   blockuser(userdata: User) {
     this.dataLoading.emit(true);

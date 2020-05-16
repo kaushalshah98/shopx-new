@@ -3,22 +3,24 @@ import { ApiService, PATH } from '@core/api/api.service';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
 import { Observable } from 'rxjs';
 import { UserManagementService } from '../user-service/user-management.service';
+import { map } from 'rxjs/internal/operators/map';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WishlistService {
   userid: string;
-  constructor(private apiservice: ApiService, private userservice: UserManagementService) {}
+  constructor(private apiservice: ApiService, private userservice: UserManagementService) { }
 
   addtoWishlist(product: any): Observable<any> {
     this.userid = this.userservice.getUserID();
     product.userid = this.userid;
-    return this.apiservice.post(`${PATH.POST_WISH_ITEM}`, product);
+    return this.apiservice.post(`${PATH.POST_WISH_ITEM}`, product).pipe(map(res => res.body.result));
   }
   getWishlistItems(): Observable<any> {
     this.userid = this.userservice.getUserID();
-    return this.apiservice.get(PATH.GET_WISH_LIST(this.userid));
+    return this.apiservice.get(PATH.GET_WISH_LIST(this.userid))
+      .pipe(map((response) => response.body.result))
   }
   updateWishlist(product: any): Observable<any> {
     this.userid = this.userservice.getUserID();

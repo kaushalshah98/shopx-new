@@ -1,58 +1,58 @@
 <div [ngClass]="{'containerr': true , 'dark-containerr' :( property.nightmode | async)}">
   <div class="product-list">
-    <div class="roww">
-      <div class="three six" *ngFor="let item of productitems index as i">
-        <mat-card class="product-card">
-          <mat-card-header>
-            <mat-card-title>
-              <div class="wishlist-icon">
-                <button
-                  mat-icon-button
-                  matTooltip="{{'tooltip.add_to_wishlist' | translate}}"
-                  [matTooltipShowDelay]="300"
-                  matTooltipPosition="above"
-                  (click)="addToWishlist(item)"
-                >
-                  <mat-icon>favorite_border </mat-icon>
-                </button>
-              </div>
-              <div class="compare-icon">
-                <ng-container *ngIf="compare">
+    <div fxLayout="row wrap" fxLayoutGap="55px grid" class="u-padding-bottom-15">
+      <ng-container *ngFor="let item of productitems">
+        <div fxFlex="100" fxFlex.gt-md="25" fxFlex.gt-sm="33" fxFlex.gt-xs="50">
+          <mat-card class="product-card">
+            <mat-card-header>
+              <mat-card-title>
+                <div class="wishlist-icon">
                   <button
-                    matTooltip="{{'tooltip.add_to_compare' | translate}}"
-                    matTooltipPosition="above"
-                    [matTooltipShowDelay]="300"
                     mat-icon-button
-                    color="warn"
-                    (click)="addtocompare(item)"
+                    matTooltip="{{'tooltip.add_to_wishlist' | translate}}"
+                    [matTooltipShowDelay]="300"
+                    matTooltipPosition="above"
+                    (click)="addToWishlist(item)"
                   >
-                    <mat-icon>compare_arrows</mat-icon>
+                    <mat-icon>favorite_border </mat-icon>
                   </button>
-                </ng-container>
+                </div>
+                <div class="compare-icon">
+                  <ng-container *ngIf="compare">
+                    <button
+                      matTooltip="{{'tooltip.add_to_compare' | translate}}"
+                      matTooltipPosition="above"
+                      [matTooltipShowDelay]="300"
+                      mat-icon-button
+                      color="warn"
+                      (click)="addtocompare(item)"
+                    >
+                      <mat-icon>compare_arrows</mat-icon>
+                    </button>
+                  </ng-container>
+                </div>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="product-img">
+                <img (click)="openBottomSheet(item)" src="{{ item.image[0].imageurl }}" />
               </div>
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <div class="product-img">
-              <img (click)="openBottomSheet(item)" src="{{ item.image[0].imageurl }}" />
-            </div>
-            <div class="product-bottom">
-              <div class="product-name">{{ item.name }}</div>
-              <div class="price"><span>₹</span>{{ item.price }}</div>
-            </div>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-raised-button class="add-to-cart-btn" (click)="addToCart(item)">
-              {{"user.product.add_to_cart" | translate}}
-            </button>
-            <button mat-raised-button class="quick-view-btn" (click)="quickview(item)">
-              {{"user.product.quick_view" | translate}}
-            </button>
-          </mat-card-actions>
-        </mat-card>
-        <br />
-        <br />
-      </div>
+              <div class="product-bottom">
+                <div class="product-name">{{ item.name }}</div>
+                <div class="price"><span>₹</span>{{ item.price }}</div>
+              </div>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button class="add-to-cart-btn" (click)="addToCart(item)">
+                {{"user.product.add_to_cart" | translate}}
+              </button>
+              <button mat-raised-button class="quick-view-btn" (click)="quickview(item)">
+                {{"user.product.quick_view" | translate}}
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </ng-container>
     </div>
   </div>
 </div>

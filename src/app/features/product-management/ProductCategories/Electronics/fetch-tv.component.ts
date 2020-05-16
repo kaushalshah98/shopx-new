@@ -33,7 +33,7 @@ export class FetchTvComponent implements OnInit {
   constructor(
     private productservice: ProductManagementService,
     private notification: NotificationService
-  ) {}
+  ) { }
 
   ngOnInit() {
     document.getElementById('mainsearch').style.visibility = 'hidden';

@@ -29,9 +29,9 @@ export class ListProductsComponent implements OnInit {
     private cartservice: CartManagementService,
     private notification: NotificationService,
     private storage: LocalStorageService
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
   openBottomSheet(item) {
     this.imagepopup.openBottomSheet(item);
   }
@@ -50,7 +50,7 @@ export class ListProductsComponent implements OnInit {
       };
       this.wishlistservice.addtoWishlist(product).subscribe(
         (res) => {
-          if (res.message) {
+          if (res == null) {
             this.notification.info(`${NOTIFICATION.This_Item_is_already_in_list}`);
           } else {
             this.notification.success(`${NOTIFICATION.Item_is_added_To_Wishlist}`);
@@ -60,7 +60,7 @@ export class ListProductsComponent implements OnInit {
           console.log(error);
           this.notification.error(error.message);
         },
-        () => {}
+        () => { }
       );
     }
   }
@@ -94,7 +94,7 @@ export class ListProductsComponent implements OnInit {
         });
     }
   }
-  updateCart() {}
-  removeFromCart() {}
-  emptycart() {}
+  updateCart() { }
+  removeFromCart() { }
+  emptycart() { }
 }
