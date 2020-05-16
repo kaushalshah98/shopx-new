@@ -23,7 +23,7 @@ export class DetailviewComponent implements OnInit, AfterViewInit {
     public property: PropertyAccessService,
     private productservice: ProductManagementService,
     private notification: NotificationService
-  ) { }
+  ) {}
 
   ngAfterViewInit() {
     this.dataLoading.emit(false);

@@ -5,9 +5,8 @@ import { HttpResponse } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpcacheService {
-
   private requests: any = {};
-  constructor() { }
+  constructor() {}
 
   put(url: string, response: HttpResponse<any>) {
     this.requests[url] = response;

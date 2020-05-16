@@ -9,13 +9,12 @@ import { AdminManagementService } from '../../admin-service/admin-management.ser
   providedIn: 'root'
 })
 export class UsersResolverService implements Resolve<User[] | TrackError> {
+  constructor(private adminmanagement: AdminManagementService) {}
 
-  constructor(private adminmanagement: AdminManagementService) { }
-
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<User[] | TrackError> {
-    return this.adminmanagement.getusers()
-      .pipe(
-        catchError(err => of(err))
-      )
+  resolve(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<User[] | TrackError> {
+    return this.adminmanagement.getusers().pipe(catchError((err) => of(err)));
   }
 }

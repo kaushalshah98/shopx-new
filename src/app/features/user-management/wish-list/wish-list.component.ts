@@ -30,7 +30,7 @@ export class WishListComponent implements OnInit, AfterViewInit {
     private cartservice: CartManagementService,
     private wishlistservice: WishlistService,
     private notification: NotificationService
-  ) { }
+  ) {}
 
   ngAfterViewInit() {
     this.dataLoading.emit(false);

@@ -10,14 +10,15 @@ import { map } from 'rxjs/internal/operators/map';
 })
 export class ThemeService {
   userid: string;
-  constructor(private apiservice: ApiService, private userservice: UserManagementService) { }
+  constructor(private apiservice: ApiService, private userservice: UserManagementService) {}
   changeTheme(night_theme: any): Observable<any> {
     this.userid = this.userservice.getUserID();
     return this.apiservice.put(PATH.PUT_THEME(this.userid), night_theme);
   }
   getTheme(): Observable<any> {
     this.userid = this.userservice.getUserID();
-    return this.apiservice.get(PATH.GET_THEME(this.userid))
-      .pipe(map((response) => response.body.result))
+    return this.apiservice
+      .get(PATH.GET_THEME(this.userid))
+      .pipe(map((response) => response.body.result));
   }
 }

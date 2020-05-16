@@ -14,8 +14,7 @@ import { HttpcacheService } from '@services/cache/httpcache.service';
   providedIn: 'root'
 })
 export class CacheInterceptorService {
-
-  constructor(private cacheservice: HttpcacheService) { }
+  constructor(private cacheservice: HttpcacheService) {}
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (request.method !== 'GET') {
       this.cacheservice.invalidateCache();
@@ -29,11 +28,11 @@ export class CacheInterceptorService {
     }
 
     return next.handle(request).pipe(
-      tap(event => {
+      tap((event) => {
         if (event instanceof HttpResponse) {
           this.cacheservice.put(request.url, event);
         }
       })
-    )
+    );
   }
 }

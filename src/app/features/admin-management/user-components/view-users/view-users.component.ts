@@ -32,7 +32,7 @@ export class ViewUsersComponent implements OnInit, AfterViewInit {
     private notification: NotificationService,
     private resolveservice: UsersResolverService,
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
   ngAfterViewInit() {
     this.dataLoading.emit(false);

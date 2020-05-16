@@ -10,16 +10,15 @@ import { HttpErrorResponse } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AdminManagementService {
-  constructor(private apiservice: ApiService) { }
+  constructor(private apiservice: ApiService) {}
   blockuser(status: any, userid: string): Observable<any> {
     return this.apiservice.put(PATH.PUT_BLOCK_USER(userid), status);
   }
   getusers(): Observable<User[] | TrackError> {
-    return this.apiservice.get(`${PATH.GET_USER_LIST}`)
-      .pipe(
-        map((response) => response.body.result),
-        catchError(err => this.handleHttpError(err))
-      );
+    return this.apiservice.get(`${PATH.GET_USER_LIST}`).pipe(
+      map((response) => response.body.result),
+      catchError((err) => this.handleHttpError(err))
+    );
   }
   private handleHttpError(error: HttpErrorResponse): Observable<TrackError> {
     let data_error = new TrackError();

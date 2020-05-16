@@ -57,20 +57,26 @@ const routes: Routes = [
     path: 'cart',
     data: { preload: true },
     loadChildren: () =>
-      import('./features/cart-management/cart-management.module').then((m) => m.CartManagementModule),
+      import('./features/cart-management/cart-management.module').then(
+        (m) => m.CartManagementModule
+      ),
     canLoad: [UserauthguardService]
   },
   {
     path: 'checkout',
     loadChildren: () =>
-      import('./features/cart-management/cart-management.module').then((m) => m.CartManagementModule),
+      import('./features/cart-management/cart-management.module').then(
+        (m) => m.CartManagementModule
+      ),
     canLoad: [UserauthguardService]
   },
   {
     path: 'usersettings',
     data: { preload: true },
     loadChildren: () =>
-      import('./features/user-management/user-management.module').then((m) => m.UserManagementModule),
+      import('./features/user-management/user-management.module').then(
+        (m) => m.UserManagementModule
+      ),
     canLoad: [UserauthguardService]
   },
   { path: '**', component: PageNotFoundComponent }
@@ -87,4 +93,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

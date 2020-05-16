@@ -49,7 +49,7 @@ const routes: Routes = [
       {
         path: 'viewusers',
         component: ViewUsersComponent,
-        resolve:{resolvedUsers :UsersResolverService}
+        resolve: { resolvedUsers: UsersResolverService }
       },
       {
         path: 'blockuser',

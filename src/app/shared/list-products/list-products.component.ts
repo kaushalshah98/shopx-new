@@ -29,9 +29,9 @@ export class ListProductsComponent implements OnInit {
     private cartservice: CartManagementService,
     private notification: NotificationService,
     private storage: LocalStorageService
-  ) { }
+  ) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
   openBottomSheet(item) {
     this.imagepopup.openBottomSheet(item);
   }
@@ -60,7 +60,7 @@ export class ListProductsComponent implements OnInit {
           console.log(error);
           this.notification.error(error.message);
         },
-        () => { }
+        () => {}
       );
     }
   }
@@ -94,7 +94,7 @@ export class ListProductsComponent implements OnInit {
         });
     }
   }
-  updateCart() { }
-  removeFromCart() { }
-  emptycart() { }
+  updateCart() {}
+  removeFromCart() {}
+  emptycart() {}
 }

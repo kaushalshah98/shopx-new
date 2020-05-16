@@ -10,24 +10,27 @@ import { map } from 'rxjs/internal/operators/map';
 })
 export class UserManagementService {
   userid: string;
-  constructor(private apiservice: ApiService) { }
+  constructor(private apiservice: ApiService) {}
 
   createuser(userdata: User): Observable<any> {
     return this.apiservice.post(`${PATH.POST_CREATE_USER}`, userdata);
   }
   verifyuser(userdata: any): Observable<any> {
-    return this.apiservice.post(`${PATH.POST_LOGIN}`, userdata)
+    return this.apiservice
+      .post(`${PATH.POST_LOGIN}`, userdata)
       .pipe(map((response) => response.body.result));
   }
   getuser(): Observable<any> {
     this.userid = this.getUserID();
-    return this.apiservice.get(PATH.GET_USER(this.userid))
+    return this.apiservice
+      .get(PATH.GET_USER(this.userid))
       .pipe(map((response) => response.body.result));
   }
   updateuser(userdata: any): Observable<any> {
     this.userid = this.getUserID();
-    return this.apiservice.put(PATH.PUT_UPDATE_USER(this.userid), userdata)
-    .pipe(map((response) => response.body.result));
+    return this.apiservice
+      .put(PATH.PUT_UPDATE_USER(this.userid), userdata)
+      .pipe(map((response) => response.body.result));
   }
   forgotpassword(userdata: any): Observable<any> {
     return this.apiservice.post(`${PATH.POST_FORGOT_PASSWORD}`, userdata);

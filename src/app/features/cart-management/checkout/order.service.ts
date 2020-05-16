@@ -10,7 +10,7 @@ import { map } from 'rxjs/internal/operators/map';
 })
 export class OrderService {
   userid: string;
-  constructor(private apiservice: ApiService, private userservice: UserManagementService) { }
+  constructor(private apiservice: ApiService, private userservice: UserManagementService) {}
   addOrder(order: any): Observable<any> {
     this.userid = this.userservice.getUserID();
     order.userid = this.userid;
@@ -18,11 +18,13 @@ export class OrderService {
   }
   getUserOrder(): Observable<any> {
     this.userid = this.userservice.getUserID();
-    return this.apiservice.get(PATH.GET_USER_ORDER_LIST(this.userid))
+    return this.apiservice
+      .get(PATH.GET_USER_ORDER_LIST(this.userid))
       .pipe(map((response) => response.body.result));
   }
   getAllOrders(): Observable<any> {
-    return this.apiservice.get(`${PATH.GET_ORDER_LIST}`)
+    return this.apiservice
+      .get(`${PATH.GET_ORDER_LIST}`)
       .pipe(map((response) => response.body.result));
   }
   removeOrder(data: any): Observable<any> {

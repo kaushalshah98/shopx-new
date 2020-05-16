@@ -108,7 +108,7 @@ export class NavbarComponent implements OnInit {
           console.log(error);
           this.notification.error(error.message);
         },
-        () => { }
+        () => {}
       );
     }
   }

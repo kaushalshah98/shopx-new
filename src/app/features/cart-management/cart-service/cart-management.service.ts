@@ -10,7 +10,7 @@ import { map } from 'rxjs/internal/operators/map';
 })
 export class CartManagementService {
   userid: string;
-  constructor(private apiservice: ApiService, private userservice: UserManagementService) { }
+  constructor(private apiservice: ApiService, private userservice: UserManagementService) {}
 
   addtoCart(product: any): Promise<any> {
     product.userid = this.userid;
@@ -18,13 +18,15 @@ export class CartManagementService {
   }
   getCartItems(): Promise<any> {
     this.userid = this.userservice.getUserID();
-    return this.apiservice.get(PATH.GET_CART_ITEMS(this.userid))
+    return this.apiservice
+      .get(PATH.GET_CART_ITEMS(this.userid))
       .pipe(map((response) => response.body.result))
       .toPromise();
   }
   getCartSize(): Promise<any> {
     this.userid = this.userservice.getUserID();
-    return this.apiservice.get(PATH.GET_CARTSIZE(this.userid))
+    return this.apiservice
+      .get(PATH.GET_CARTSIZE(this.userid))
       .pipe(map((response) => response.body.result))
       .toPromise();
   }
